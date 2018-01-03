@@ -4,7 +4,9 @@ The log of my #100DaysOfCode challenge. Started on [January 1, Monday, 2018].
 
 ## Log
 
-### R1Dii
-I have just started the 100daysofcode challenge. Even though not much coding was accomplished, it's a good start. I decided to restart my iOS project, "Swayter". I created the project on xcode and accomplished some of the object model for the application. I brushed up on iOS classes using part of lynda's Swift 4 essential training course. Hopefully I'll write some more code tomorrow.
+### R1D1
+I had already started the 100 days of code challenge, but today I forked the official repository for the challenge and I'm finally adhering to the official rules. Also, I started the project I was working on from scratch. I started working on a simple iOS project I've been meaning to work on for some time now. It's titled "Swayter". This is going to be a simple app that sends its users notifications stating how many layers to wear on a given day. This will be determined by the thresholds set up by the user.
 
-### R1Di
+Today, I created the TemperatureThreshold object description. I'll probably make some changes to it, but I'm going to wrap it up for the day. I'm looking forward to tomorrow!
+
+Link to my work: 
