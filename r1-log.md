@@ -10,3 +10,13 @@ I had already started the 100 days of code challenge, but today I forked the off
 Today, I created the TemperatureThreshold object description. I'll probably make some changes to it, but I'm going to wrap it up for the day. I'm looking forward to tomorrow!
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D3 - January 3, 2018
+Today I decided to tackle user authentication with facebook. I was working on facebook authentication for "Swayter", but I got stuck. Facebook's documentation for login and authentication does not have a Swift version, only Objective-C. I'll tackle this again tomorrow.
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D4 - January 4, 2018
+After a while struggling with facebook's user authentication for swift 4, I was finally able to make it work. It turns out I simply needed to give the project a build right after installing the facebook sdk using cocoapods. After doing so, I was able to import the necessary frameworks. I created a button that allows the user to log in using their facebook credentials.
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
