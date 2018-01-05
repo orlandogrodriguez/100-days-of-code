@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23881CFAF96FD28A2607B6D5 /* Pods_Swayter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E9A3D98C62A9BFAE35585A /* Pods_Swayter.framework */; };
+		7C39A6E7D3D257EA12C5D3C4 /* Pods_SwayterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6084D4CCDCE7CA6390B26D /* Pods_SwayterTests.framework */; };
 		812527551FFC7C4100940DAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812527541FFC7C4100940DAB /* AppDelegate.swift */; };
 		812527571FFC7C4100940DAB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812527561FFC7C4100940DAB /* HomeViewController.swift */; };
 		8125275A1FFC7C4100940DAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 812527581FFC7C4100940DAB /* Main.storyboard */; };
@@ -16,6 +18,9 @@
 		8125276D1FFC7C4100940DAB /* SwayterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8125276C1FFC7C4100940DAB /* SwayterTests.swift */; };
 		812527781FFC7C4100940DAB /* SwayterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812527771FFC7C4100940DAB /* SwayterUITests.swift */; };
 		812527871FFC7DDC00940DAB /* TemperatureThreshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812527861FFC7DDC00940DAB /* TemperatureThreshold.swift */; };
+		8125278B1FFD989F00940DAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8125278A1FFD989F00940DAB /* LoginViewController.swift */; };
+		8125278D1FFD9A0300940DAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8125278C1FFD9A0300940DAB /* GoogleService-Info.plist */; };
+		DA839325F08E0ADB4C8CCE37 /* Pods_SwayterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738E12FA9C95FDEEF322BC54 /* Pods_SwayterUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B8E64EF762485247CD899D /* Pods-Swayter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swayter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swayter/Pods-Swayter.debug.xcconfig"; sourceTree = "<group>"; };
+		10E9A3D98C62A9BFAE35585A /* Pods_Swayter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swayter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E6084D4CCDCE7CA6390B26D /* Pods_SwayterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwayterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FA7FE74040CC2841F86CB41 /* Pods-SwayterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwayterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwayterTests/Pods-SwayterTests.release.xcconfig"; sourceTree = "<group>"; };
+		46A8E4052C173912DA2466B3 /* Pods-SwayterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwayterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwayterTests/Pods-SwayterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		738E12FA9C95FDEEF322BC54 /* Pods_SwayterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwayterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		812527511FFC7C4100940DAB /* Swayter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swayter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		812527541FFC7C4100940DAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		812527561FFC7C4100940DAB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +62,12 @@
 		812527771FFC7C4100940DAB /* SwayterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwayterUITests.swift; sourceTree = "<group>"; };
 		812527791FFC7C4100940DAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		812527861FFC7DDC00940DAB /* TemperatureThreshold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureThreshold.swift; sourceTree = "<group>"; };
+		8125278A1FFD989F00940DAB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8125278C1FFD9A0300940DAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		819F82511FFF15A5005EF8A4 /* Swayter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swayter.entitlements; sourceTree = "<group>"; };
+		935C93C5C2FF24A08E3E6E55 /* Pods-Swayter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swayter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swayter/Pods-Swayter.release.xcconfig"; sourceTree = "<group>"; };
+		C62BC57BC1C9FFB8A309B574 /* Pods-SwayterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwayterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwayterUITests/Pods-SwayterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EB9E8DBC47D0B9D1FE4DF18D /* Pods-SwayterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwayterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwayterUITests/Pods-SwayterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23881CFAF96FD28A2607B6D5 /* Pods_Swayter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C39A6E7D3D257EA12C5D3C4 /* Pods_SwayterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +91,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA839325F08E0ADB4C8CCE37 /* Pods_SwayterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6995AD259776F5EABD0B02B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10E9A3D98C62A9BFAE35585A /* Pods_Swayter.framework */,
+				1E6084D4CCDCE7CA6390B26D /* Pods_SwayterTests.framework */,
+				738E12FA9C95FDEEF322BC54 /* Pods_SwayterUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F931AA4CAB767277A870AAF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00B8E64EF762485247CD899D /* Pods-Swayter.debug.xcconfig */,
+				935C93C5C2FF24A08E3E6E55 /* Pods-Swayter.release.xcconfig */,
+				46A8E4052C173912DA2466B3 /* Pods-SwayterTests.debug.xcconfig */,
+				1FA7FE74040CC2841F86CB41 /* Pods-SwayterTests.release.xcconfig */,
+				EB9E8DBC47D0B9D1FE4DF18D /* Pods-SwayterUITests.debug.xcconfig */,
+				C62BC57BC1C9FFB8A309B574 /* Pods-SwayterUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		812527481FFC7C4100940DAB = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +128,8 @@
 				8125276B1FFC7C4100940DAB /* SwayterTests */,
 				812527761FFC7C4100940DAB /* SwayterUITests */,
 				812527521FFC7C4100940DAB /* Products */,
+				7F931AA4CAB767277A870AAF /* Pods */,
+				6995AD259776F5EABD0B02B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +146,7 @@
 		812527531FFC7C4100940DAB /* Swayter */ = {
 			isa = PBXGroup;
 			children = (
+				819F82511FFF15A5005EF8A4 /* Swayter.entitlements */,
 				812527851FFC7DB100940DAB /* Classes */,
 				812527541FFC7C4100940DAB /* AppDelegate.swift */,
 				812527561FFC7C4100940DAB /* HomeViewController.swift */,
@@ -108,7 +154,9 @@
 				8125275E1FFC7C4100940DAB /* Assets.xcassets */,
 				812527601FFC7C4100940DAB /* LaunchScreen.storyboard */,
 				812527631FFC7C4100940DAB /* Info.plist */,
+				8125278C1FFD9A0300940DAB /* GoogleService-Info.plist */,
 				8125275B1FFC7C4100940DAB /* Swayter.xcdatamodeld */,
+				8125278A1FFD989F00940DAB /* LoginViewController.swift */,
 			);
 			path = Swayter;
 			sourceTree = "<group>";
@@ -146,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8125277C1FFC7C4100940DAB /* Build configuration list for PBXNativeTarget "Swayter" */;
 			buildPhases = (
+				01BF1C751039BC4A0601D2CC /* [CP] Check Pods Manifest.lock */,
 				8125274D1FFC7C4100940DAB /* Sources */,
 				8125274E1FFC7C4100940DAB /* Frameworks */,
 				8125274F1FFC7C4100940DAB /* Resources */,
+				D7ECC1B8083507FCEAAED875 /* [CP] Embed Pods Frameworks */,
+				6250392F8BB1EC49B8F63506 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,9 +214,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8125277F1FFC7C4100940DAB /* Build configuration list for PBXNativeTarget "SwayterTests" */;
 			buildPhases = (
+				2C91DFC35B61DF8E86A34CFE /* [CP] Check Pods Manifest.lock */,
 				812527641FFC7C4100940DAB /* Sources */,
 				812527651FFC7C4100940DAB /* Frameworks */,
 				812527661FFC7C4100940DAB /* Resources */,
+				26B5B6FC7E5D67E7084D63B4 /* [CP] Embed Pods Frameworks */,
+				EE9A2150136A32978EB02343 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,9 +235,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 812527821FFC7C4100940DAB /* Build configuration list for PBXNativeTarget "SwayterUITests" */;
 			buildPhases = (
+				AB7F7896BB289A209E4AD94B /* [CP] Check Pods Manifest.lock */,
 				8125276F1FFC7C4100940DAB /* Sources */,
 				812527701FFC7C4100940DAB /* Frameworks */,
 				812527711FFC7C4100940DAB /* Resources */,
+				5BC05020C9112F8CE69CED38 /* [CP] Embed Pods Frameworks */,
+				7503A6BEAEBC048A679527C4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,6 +265,11 @@
 					812527501FFC7C4100940DAB = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					812527671FFC7C4100940DAB = {
 						CreatedOnToolsVersion = 9.2;
@@ -247,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				812527621FFC7C4100940DAB /* LaunchScreen.storyboard in Resources */,
+				8125278D1FFD9A0300940DAB /* GoogleService-Info.plist in Resources */,
 				8125275F1FFC7C4100940DAB /* Assets.xcassets in Resources */,
 				8125275A1FFC7C4100940DAB /* Main.storyboard in Resources */,
 			);
@@ -268,6 +331,144 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01BF1C751039BC4A0601D2CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		26B5B6FC7E5D67E7084D63B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwayterTests/Pods-SwayterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C91DFC35B61DF8E86A34CFE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5BC05020C9112F8CE69CED38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwayterUITests/Pods-SwayterUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6250392F8BB1EC49B8F63506 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swayter/Pods-Swayter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7503A6BEAEBC048A679527C4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwayterUITests/Pods-SwayterUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB7F7896BB289A209E4AD94B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D7ECC1B8083507FCEAAED875 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swayter/Pods-Swayter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE9A2150136A32978EB02343 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwayterTests/Pods-SwayterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8125274D1FFC7C4100940DAB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -276,6 +477,7 @@
 				812527871FFC7DDC00940DAB /* TemperatureThreshold.swift in Sources */,
 				812527571FFC7C4100940DAB /* HomeViewController.swift in Sources */,
 				812527551FFC7C4100940DAB /* AppDelegate.swift in Sources */,
+				8125278B1FFD989F00940DAB /* LoginViewController.swift in Sources */,
 				8125275D1FFC7C4100940DAB /* Swayter.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,13 +642,15 @@
 		};
 		8125277D1FFC7C4100940DAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00B8E64EF762485247CD899D /* Pods-Swayter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Swayter/Swayter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LUM87FU73S;
 				INFOPLIST_FILE = Swayter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WorlySoftware.Swayter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.worlysoftwareios.swayter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -455,13 +659,15 @@
 		};
 		8125277E1FFC7C4100940DAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 935C93C5C2FF24A08E3E6E55 /* Pods-Swayter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Swayter/Swayter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LUM87FU73S;
 				INFOPLIST_FILE = Swayter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WorlySoftware.Swayter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.worlysoftwareios.swayter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -470,6 +676,7 @@
 		};
 		812527801FFC7C4100940DAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46A8E4052C173912DA2466B3 /* Pods-SwayterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +694,7 @@
 		};
 		812527811FFC7C4100940DAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FA7FE74040CC2841F86CB41 /* Pods-SwayterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,6 +712,7 @@
 		};
 		812527831FFC7C4100940DAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB9E8DBC47D0B9D1FE4DF18D /* Pods-SwayterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -520,6 +729,7 @@
 		};
 		812527841FFC7C4100940DAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C62BC57BC1C9FFB8A309B574 /* Pods-SwayterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
