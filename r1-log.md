@@ -28,3 +28,10 @@ Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code
 For day 5 of this challenge, I worked on one simple task for Swayter. I used the CoreLocation framework to obtain the user's coordinates. With these coordinates, I'll be able to obtain weather data. I have yet to figure out what weather API I can use to obtain this information. It shouldn't be that much of a challenge.
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D6 - January 6, 2018
+I made a lot of progress today. Somehow it has taken me so long to find out about Alamofire; an excellent library for iOS networking solutions. I registered an account with the DarkSky API, a nice API that provides weather data for any location. I used the latitude and longitude values I found yesterday using CoreLocation in order to obtain all sorts of weather data from DarkSky using Alamofire.
+
+Tomorrow I'll work on parsing all of this data into a usable format as well as starting to give the app some structure.
+
+Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
