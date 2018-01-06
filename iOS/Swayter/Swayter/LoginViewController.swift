@@ -9,10 +9,14 @@
 import UIKit
 import FBSDKLoginKit
 import CoreLocation
+import Alamofire
+
+
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
+    let darkSkyApiKey = "1d9fa591049c0c502bd0e4f3f3d3c2c9"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,17 +29,38 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, CLLocatio
         
         // Location Manager
         locationManager.requestAlwaysAuthorization()
-        //locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("\n\nlocationManager\n\n")
+        var currentLatitude: Double
+        var currentLongitude: Double
+        var url: String
         if let location = locations.first {
-            print(location.coordinate)
+            currentLatitude = location.coordinate.latitude
+            currentLongitude = location.coordinate.longitude
+            url = "https://api.darksky.net/forecast/\(darkSkyApiKey)/\(currentLatitude),\(currentLongitude)"
+            
+            Alamofire.request(url).responseJSON { response in
+                print("Request: \(String(describing: response.request))")   // original url request
+                print("Response: \(String(describing: response.response))") // http url response
+                print("Result: \(response.result)")                         // response serialization result
+                
+                if let json = response.result.value {
+                    print("JSON: \(json)") // serialized json response
+                }
+                
+                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                    print("Data: \(utf8Text)") // original server data as UTF8 string
+                }
+            }
         }
     }
     
