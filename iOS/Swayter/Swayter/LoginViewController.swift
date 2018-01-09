@@ -11,12 +11,15 @@ import FBSDKLoginKit
 import CoreLocation
 import Alamofire
 
-
+struct Forecast: Decodable {
+    var temperatureLow: Double
+}
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     let darkSkyApiKey = "1d9fa591049c0c502bd0e4f3f3d3c2c9"
+    let forecast = Forecast(temperatureLow: -273.5)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +56,20 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, CLLocatio
                 print("Response: \(String(describing: response.response))") // http url response
                 print("Result: \(response.result)")                         // response serialization result
                 
-                if let json = response.result.value {
-                    print("JSON: \(json)") // serialized json response
+                if let result = response.result.value {
+                    print("JSON: \(result)") // serialized json response
+                    guard let JSON = result as? [String: AnyObject] else {
+                        print("error")
+                        return
+                    }
+                    //forecast.temperatureLow = JSON[temperatureLow]
+                    var daily = JSON["daily"]
+                print("\n\n\n\n\n\n###\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDaily:\n\(daily!)")
+                    print("\n\nDone with daily\n\n")
+                    
+                    var data = dailyJSON["data"]
+                    
+                    
                 }
                 
                 
