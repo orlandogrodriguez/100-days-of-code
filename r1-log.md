@@ -48,3 +48,8 @@ Link to JSON Parsing Tutorial: [JSON Parsing](https://www.youtube.com/watch?v=YY
 And as always, here's the link to my work. It looks like I'll make lots of good progress tomorrow!
 
 Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D8 - R1D10 - January 10, 2018
+Finally, I made lots of progress on parsing the JSON data. I was able to acquire the low temperature for the day. This is the one most important piece of data that I needed to drive the functionality of the application. With this out of the way, now I have to work with the way the app is structured.
+
+Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
