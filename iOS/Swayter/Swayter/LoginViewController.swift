@@ -77,7 +77,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, CLLocatio
                     
                     print("Today's Low Temperature: \(temperatureLow)")
                     
-                    
                 } catch let jsonErr {
                     print("error serializing json: ", jsonErr)
                 }
