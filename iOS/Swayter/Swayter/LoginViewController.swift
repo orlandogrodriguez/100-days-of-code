@@ -11,7 +11,19 @@ import FBSDKLoginKit
 import CoreLocation
 import Alamofire
 
+struct Forecast: Decodable {
+    let daily: DailyForecast
+}
 
+struct DailyForecast: Decodable {
+    let summary: String
+    let icon: String
+    let data: [DailyData]
+}
+
+struct DailyData: Decodable {
+    let temperatureLow: Double
+}
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, CLLocationManagerDelegate {
     
@@ -42,27 +54,34 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, CLLocatio
         print("\n\nlocationManager\n\n")
         var currentLatitude: Double
         var currentLongitude: Double
-        var url: String
+        var urlString: String
         if let location = locations.first {
+            // Acquire Coordinates
             currentLatitude = location.coordinate.latitude
             currentLongitude = location.coordinate.longitude
-            url = "https://api.darksky.net/forecast/\(darkSkyApiKey)/\(currentLatitude),\(currentLongitude)"
             
-            Alamofire.request(url).responseJSON { response in
-                print("Request: \(String(describing: response.request))")   // original url request
-                print("Response: \(String(describing: response.response))") // http url response
-                print("Result: \(response.result)")                         // response serialization result
-                
-                if let json = response.result.value {
-                    print("JSON: \(json)") // serialized json response
+            // Generate String for API Call
+            urlString = "https://api.darksky.net/forecast/\(darkSkyApiKey)/\(currentLatitude),\(currentLongitude)"
+            guard let url = URL(string: urlString) else { return }
+            
+            // Hit API
+            URLSession.shared.dataTask(with: url) { (data, response, err) in
+                guard let data = data else { return }
+                do {
+                    
+                    // JSON Parsing
+                    let forecast = try JSONDecoder().decode(Forecast.self, from: data)
+                    let daily = forecast.daily
+                    let dailyData = daily.data
+                    let temperatureLow = dailyData[0].temperatureLow
+                    
+                    print("Today's Low Temperature: \(temperatureLow)")
+                    
+                    
+                } catch let jsonErr {
+                    print("error serializing json: ", jsonErr)
                 }
-                
-                
-                
-                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                    print("Data: \(utf8Text)") // original server data as UTF8 string
-                }
-            }
+            }.resume()
         }
     }
     
