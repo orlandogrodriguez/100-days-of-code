@@ -35,3 +35,21 @@ I made a lot of progress today. Somehow it has taken me so long to find out abou
 Tomorrow I'll work on parsing all of this data into a usable format as well as starting to give the app some structure.
 
 Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D7 - January 7, 2018
+This is the 1 week mark of the challenge! I feel like I've made a lot of progress on this project. I hit a roadblock today trying to create a custom table-view cell for my app. However, I've found the resources that will allow me to tackle this first thing tomorrow.
+
+Custom TableView Cells Tutorial: [Custom TableView Cells](https://www.youtube.com/watch?v=zAWO9rldyUE)
+
+After a while of working on this, I explored the new tools for parsing and serializing JSON using Swift 4. I learned about Swift4's JSONDecoder, and how easy it is to use. I found a nice tutorial for this as well.
+
+Link to JSON Parsing Tutorial: [JSON Parsing](https://www.youtube.com/watch?v=YY3bTxgxWss)
+
+And as always, here's the link to my work. It looks like I'll make lots of good progress tomorrow!
+
+Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D8 - R1D10 - January 10, 2018
+Finally, I made lots of progress on parsing the JSON data. I was able to acquire the low temperature for the day. This is the one most important piece of data that I needed to drive the functionality of the application. With this out of the way, now I have to work with the way the app is structured.
+
+Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
