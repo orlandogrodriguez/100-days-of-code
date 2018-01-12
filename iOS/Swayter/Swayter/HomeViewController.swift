@@ -1,36 +1,84 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Swayter
 //
-//  Created by Orlando G. Rodriguez on 1/2/18.
+//  Created by Orlando G. Rodriguez on 1/3/18.
 //  Copyright © 2018 Worly Software. All rights reserved.
 //
 
 import UIKit
+import FBSDKLoginKit
+import CoreLocation
+import Alamofire
 
-class HomeViewController: UIViewController {
+struct Forecast: Decodable {
+    let daily: DailyForecast
+}
 
-    var thresholds = [TemperatureThreshold]()
+struct DailyForecast: Decodable {
+    let summary: String
+    let icon: String
+    let data: [DailyData]
+}
+
+struct DailyData: Decodable {
+    let temperatureLow: Double
+}
+
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
+    
+    let locationManager = CLLocationManager()
+    let darkSkyApiKey = "1d9fa591049c0c502bd0e4f3f3d3c2c9"
+    
+    @IBOutlet weak var lowTempLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Dummy temperature thresholds for testing:
-        fetchThresholds(uid: "12345")
+        
+        // Location Manager
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
         
     }
     
-    func fetchThresholds(uid: String) {
-        //TODO: get thresholds from firebase and add to thresholds array.
-        fetchTestThresholds()   //Remove this upon completing firebase implementation.
-    }
-    
-    func fetchTestThresholds() {
-        var threshold0 = TemperatureThreshold.init(name: "Sweater", temperature: 68)
-        var threshold1 = TemperatureThreshold.init(name: "Jacket", temperature: 57)
-        var threshold2 = TemperatureThreshold.init(name: "Winter Jacket", temperature: 50)
-        thresholds.append(threshold0)
-        thresholds.append(threshold1)
-        thresholds.append(threshold2)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("\n\nlocationManager\n\n")
+        var currentLatitude: Double
+        var currentLongitude: Double
+        var urlString: String
+        if let location = locations.first {
+            // Acquire Coordinates
+            currentLatitude = location.coordinate.latitude
+            currentLongitude = location.coordinate.longitude
+            
+            // Generate String for API Call
+            urlString = "https://api.darksky.net/forecast/\(darkSkyApiKey)/\(currentLatitude),\(currentLongitude)"
+            guard let url = URL(string: urlString) else { return }
+            
+            // Hit API
+            URLSession.shared.dataTask(with: url) { (data, response, err) in
+                guard let data = data else { return }
+                do {
+                    
+                    // JSON Parsing
+                    let forecast = try JSONDecoder().decode(Forecast.self, from: data)
+                    let daily = forecast.daily
+                    let dailyData = daily.data
+                    let temperatureLow = dailyData[0].temperatureLow
+                    
+                    
+                    print("Today's Low Temperature: \(temperatureLow)")
+                    
+                } catch let jsonErr {
+                    print("error serializing json: ", jsonErr)
+                }
+            }.resume()
+        }
     }
 }
