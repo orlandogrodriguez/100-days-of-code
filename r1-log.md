@@ -53,3 +53,8 @@ Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez
 Finally, I made lots of progress on parsing the JSON data. I was able to acquire the low temperature for the day. This is the one most important piece of data that I needed to drive the functionality of the application. With this out of the way, now I have to work with the way the app is structured.
 
 Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D11 - January 11, 2018
+I was very excited to get some refactoring work done. It finally seems like I'm working on the app and not just testing out one thing or the other. Unfortunately, it seems that a big refactoring bug remains. I'm unable to add new outlets without having the program crash. I may have a workaround, but it'll take me some time. I'll try this tomorrow.
+
+Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
