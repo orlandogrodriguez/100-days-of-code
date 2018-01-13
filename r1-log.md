@@ -58,3 +58,10 @@ Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez
 I was very excited to get some refactoring work done. It finally seems like I'm working on the app and not just testing out one thing or the other. Unfortunately, it seems that a big refactoring bug remains. I'm unable to add new outlets without having the program crash. I may have a workaround, but it'll take me some time. I'll try this tomorrow.
 
 Link to my work: Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D12 - January 12, 2018
+Slowly but surely, this app is taking some form. I was finally able to fix that huge refactoring bug I created when I renamed the files for convenience. Well... it seems like i've learned my lesson. It's not smart to mess around with filenames on xcode.
+
+I was finally able to create a UILabel as an IBOutlet without having the app crash on me. Moreover, the app displays the low temperature forecast for the current day. The app doesn't look like much yet, but this is actually a very big step. There is a lot that is still missing, but very soon this app will be a finished product. I won't give up!
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
