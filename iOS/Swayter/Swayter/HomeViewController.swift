@@ -2,14 +2,13 @@
 //  HomeViewController.swift
 //  Swayter
 //
-//  Created by Orlando G. Rodriguez on 1/3/18.
+//  Created by Orlando G. Rodriguez on 1/2/18.
 //  Copyright © 2018 Worly Software. All rights reserved.
 //
 
 import UIKit
 import FBSDKLoginKit
 import CoreLocation
-import Alamofire
 
 struct Forecast: Decodable {
     let daily: DailyForecast
@@ -30,7 +29,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let darkSkyApiKey = "1d9fa591049c0c502bd0e4f3f3d3c2c9"
     
-    @IBOutlet weak var lowTempLabel: UILabel!
+    var lowTemperatureForecast: Double = -273.00 {
+        didSet {
+            print("lowTemperatureForecast: \(self.lowTemperatureForecast)")
+            updateLowTemperatureLabel()
+        }
+    }
+    
+    @IBOutlet weak var lowTemperatureLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +51,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         
+    }
+    
+    func updateLowTemperatureLabel() {
+        self.lowTemperatureLabel.text = "Today's Low \(self.lowTemperatureForecast)"
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -71,9 +81,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     let daily = forecast.daily
                     let dailyData = daily.data
                     let temperatureLow = dailyData[0].temperatureLow
-                    
+                    self.lowTemperatureForecast = temperatureLow
                     
                     print("Today's Low Temperature: \(temperatureLow)")
+                    self.updateLowTemperatureLabel()
                     
                 } catch let jsonErr {
                     print("error serializing json: ", jsonErr)

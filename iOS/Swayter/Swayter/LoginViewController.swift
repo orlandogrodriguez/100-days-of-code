@@ -1,16 +1,17 @@
 //
-//  LoginViewController.swift
+//  HomeViewController.swift
 //  Swayter
 //
-//  Created by Orlando G. Rodriguez on 1/2/18.
+//  Created by Orlando G. Rodriguez on 1/3/18.
 //  Copyright © 2018 Worly Software. All rights reserved.
 //
 
 import UIKit
 import FBSDKLoginKit
+import CoreLocation
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
-
+    
     var thresholds = [TemperatureThreshold]()
     
     override func viewDidLoad() {
@@ -40,4 +41,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         print("Successfully logged in with facebook.")
     }
+    
 }
+
