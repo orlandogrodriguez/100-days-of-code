@@ -65,3 +65,8 @@ Slowly but surely, this app is taking some form. I was finally able to fix that 
 I was finally able to create a UILabel as an IBOutlet without having the app crash on me. Moreover, the app displays the low temperature forecast for the current day. The app doesn't look like much yet, but this is actually a very big step. There is a lot that is still missing, but very soon this app will be a finished product. I won't give up!
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D13 - January 13, 2018
+I didn't have much time to code today, but I finished some preliminary designs for the UI. Check my twitter for some screenshots. I'll start to develop with this prototype in mind from now on.
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
