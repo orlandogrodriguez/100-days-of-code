@@ -70,3 +70,8 @@ Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code
 I didn't have much time to code today, but I finished some preliminary designs for the UI. Check my twitter for some screenshots. I'll start to develop with this prototype in mind from now on.
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D14 - R1D15 - January 14, 2018 - January 15, 2018
+I've been traveling this weekend, so it was hard for me to make time for coding. On my flight back from San Jose, I accomplished so much! I tweaked the UI design and started its implementation. It doesn't sound like much, but if you've done iOS development, you know what a headache the UI Design process is.
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
