@@ -20,7 +20,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Facebook Login Button
         let loginButton = FBSDKLoginButton()
         view.addSubview(loginButton)
-        loginButton.frame = CGRect(x: 20, y: view.frame.height / 2, width: view.frame.width - 40 , height: 44)
+        loginButton.frame = CGRect(x: 0, y: view.frame.height / 2, width: view.frame.width, height: 44)
+        
         loginButton.delegate = self
         
     }
@@ -37,7 +38,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC")
-        self.present(controller, animated: true, completion: nil)
+        self.present(controller, animated: false, completion: nil)
         
         print("Successfully logged in with facebook.")
     }

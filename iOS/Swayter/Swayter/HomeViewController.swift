@@ -36,11 +36,16 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    //UI
+    
+    
     @IBOutlet weak var lowTemperatureLabel: UILabel!
+    
+    var hamburgerButton = UIButton(type: UIButtonType.custom) as UIButton
+    var hamburgerButtonImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         // Location Manager
         locationManager.requestAlwaysAuthorization()
@@ -51,6 +56,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         
+        // Generate Hamburger Button
+    
     }
     
     func updateLowTemperatureLabel() {
