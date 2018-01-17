@@ -37,12 +37,23 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     //UI
-    
+    let animationDuration = 0.1
     
     @IBOutlet weak var lowTemperatureLabel: UILabel!
+    @IBOutlet weak var hamburgerButton: UIButton!
+    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var notificationsButton: UIButton!
+    @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var newThresholdButton: UIButton!
     
-    var hamburgerButton = UIButton(type: UIButtonType.custom) as UIButton
-    var hamburgerButtonImage: UIImage!
+    @IBAction func hamburgerButtonPress(_ sender: Any) {
+        enableMenuButtons()
+    }
+    
+    @IBAction func homeButtonPress(_ sender: Any) {
+        disableMenuButtons()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +67,61 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         
-        // Generate Hamburger Button
+        disableMenuButtons()
+        
+    }
     
+    func disableMenuButtons() {
+        
+        homeButton.isHidden = true
+        homeButton.isEnabled = false
+        hamburgerButton.isHidden = false
+        hamburgerButton.isEnabled = true
+        
+        profileButton.isEnabled = false
+        notificationsButton.isEnabled = false
+        newThresholdButton.isEnabled = false
+        
+        UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut, animations: {
+            self.profileButton.transform = CGAffineTransform.identity
+            self.notificationsButton.transform = CGAffineTransform.identity
+            self.newThresholdButton.transform = CGAffineTransform.identity
+        },completion: { (true) in
+            self.profileButton.isHidden = true
+            self.notificationsButton.isHidden = true
+            self.newThresholdButton.isHidden = true
+        })
+    }
+    
+    func enableMenuButtons() {
+        
+        let displacement: CGFloat = 100.0
+        let diagonalDisplacement: CGFloat = 70.71067
+        
+        homeButton.isHidden = false
+        homeButton.isEnabled = true
+        
+        hamburgerButton.isHidden = true
+        hamburgerButton.isEnabled = false
+        
+        self.profileButton.isHidden = false
+        self.notificationsButton.isHidden = false
+        self.newThresholdButton.isHidden = false
+        
+        UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut, animations: {
+            self.profileButton.transform = CGAffineTransform(translationX: displacement * -1, y: 0)
+            self.notificationsButton.transform = CGAffineTransform(translationX: diagonalDisplacement * -1, y: diagonalDisplacement * -1)
+            self.newThresholdButton.transform = CGAffineTransform(translationX: 0, y: displacement * -1)
+        }) { (true) in
+            self.profileButton.isEnabled = true
+            self.notificationsButton.isEnabled = true
+            self.newThresholdButton.isEnabled = true
+        }
+        
     }
     
     func updateLowTemperatureLabel() {
-        self.lowTemperatureLabel.text = "Today's Low \(self.lowTemperatureForecast)"
+        self.lowTemperatureLabel.text = "\(self.lowTemperatureForecast)ºF"
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
