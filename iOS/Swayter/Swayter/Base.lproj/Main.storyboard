@@ -56,7 +56,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- ºF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37h-XX-FW8">
-                                <rect key="frame" x="20" y="310" width="335" height="67"/>
+                                <rect key="frame" x="20" y="120" width="335" height="67"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                 <color key="textColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -68,13 +68,21 @@
                                     <action selector="hamburgerButtonPress:" destination="6P6-r6-FeV" eventType="touchUpInside" id="Td9-pP-9uH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoS-qC-KQP" userLabel="HomeButton">
+                                <rect key="frame" x="291" y="583" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="HomeButton"/>
+                                <connections>
+                                    <action selector="homeButtonPress:" destination="6P6-r6-FeV" eventType="touchUpInside" id="sxz-8w-Sh6"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B77-At-GRC">
                                 <rect key="frame" x="291" y="583" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="NotificationsButton"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Low" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etq-ay-Wlo">
-                                <rect key="frame" x="20" y="252" width="335" height="48"/>
+                                <rect key="frame" x="20" y="64" width="335" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -92,25 +100,25 @@
                                     <segue destination="Ius-SG-5TU" kind="show" animates="NO" id="s8G-Eu-BXk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoS-qC-KQP" userLabel="HomeButton">
-                                <rect key="frame" x="291" y="583" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="HomeButton"/>
-                                <connections>
-                                    <action selector="homeButtonPress:" destination="6P6-r6-FeV" eventType="touchUpInside" id="sxz-8w-Sh6"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by Dark Sky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5B-K8-Lrk">
+                                <rect key="frame" x="20" y="627.5" width="154" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dGJ-Sv-PzH" firstAttribute="trailing" secondItem="Etq-ay-Wlo" secondAttribute="trailing" constant="20" id="1EJ-jX-rGc"/>
-                            <constraint firstItem="37h-XX-FW8" firstAttribute="top" secondItem="Etq-ay-Wlo" secondAttribute="bottom" constant="10" id="KnF-UN-SDz"/>
+                            <constraint firstItem="w5B-K8-Lrk" firstAttribute="leading" secondItem="dGJ-Sv-PzH" secondAttribute="leading" constant="20" id="Ksb-yN-98n"/>
                             <constraint firstItem="Etq-ay-Wlo" firstAttribute="leading" secondItem="dGJ-Sv-PzH" secondAttribute="leading" constant="20" id="SIb-Eo-Wad"/>
                             <constraint firstItem="dGJ-Sv-PzH" firstAttribute="trailing" secondItem="37h-XX-FW8" secondAttribute="trailing" constant="20" id="SmN-dk-fHQ"/>
                             <constraint firstItem="dGJ-Sv-PzH" firstAttribute="bottom" secondItem="LO8-Bt-E29" secondAttribute="bottom" constant="20" id="YNS-4x-jw6"/>
                             <constraint firstItem="37h-XX-FW8" firstAttribute="leading" secondItem="dGJ-Sv-PzH" secondAttribute="leading" constant="20" id="fZ7-Nf-Uoa"/>
-                            <constraint firstItem="37h-XX-FW8" firstAttribute="centerY" secondItem="dGJ-Sv-PzH" secondAttribute="centerY" id="ieX-0l-2oF"/>
+                            <constraint firstItem="37h-XX-FW8" firstAttribute="top" secondItem="Etq-ay-Wlo" secondAttribute="bottom" constant="8" id="iYL-R8-gmn"/>
+                            <constraint firstItem="Etq-ay-Wlo" firstAttribute="top" secondItem="dGJ-Sv-PzH" secondAttribute="top" constant="44" id="pIh-Bo-rsN"/>
                             <constraint firstItem="dGJ-Sv-PzH" firstAttribute="trailing" secondItem="LO8-Bt-E29" secondAttribute="trailing" constant="20" id="vOc-3c-Ugp"/>
+                            <constraint firstItem="dGJ-Sv-PzH" firstAttribute="bottom" secondItem="w5B-K8-Lrk" secondAttribute="bottom" constant="20" id="x5l-3V-ZJI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dGJ-Sv-PzH"/>
                     </view>
@@ -120,6 +128,7 @@
                         <outlet property="lowTemperatureLabel" destination="37h-XX-FW8" id="r22-Kq-bAe"/>
                         <outlet property="newThresholdButton" destination="ont-mz-Izd" id="2Bw-33-Mvx"/>
                         <outlet property="notificationsButton" destination="B77-At-GRC" id="kPn-iM-uWJ"/>
+                        <outlet property="poweredByDarkSky" destination="w5B-K8-Lrk" id="kK5-HW-S1c"/>
                         <outlet property="profileButton" destination="ATX-gV-u8s" id="jyl-Pn-ig3"/>
                     </connections>
                 </viewController>
@@ -384,6 +393,6 @@
         <image name="ProfileButton" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MSD-dC-Fvk"/>
+        <segue reference="s8G-Eu-BXk"/>
     </inferredMetricsTieBreakers>
 </document>

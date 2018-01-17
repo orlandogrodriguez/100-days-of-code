@@ -41,6 +41,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     //UI
     let animationDuration = 0.1
     
+    @IBOutlet weak var poweredByDarkSky: UILabel!
     @IBOutlet weak var lowTemperatureLabel: UILabel!
     @IBOutlet weak var hamburgerButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
@@ -138,6 +139,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             
             // Generate String for API Call
             urlString = "https://api.darksky.net/forecast/\(darkSkyApiKey)/\(currentLatitude),\(currentLongitude)"
+            
             guard let url = URL(string: urlString) else { return }
             
             // Hit API
@@ -159,6 +161,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     print("error serializing json: ", jsonErr)
                 }
             }.resume()
+            
         }
     }
 }
