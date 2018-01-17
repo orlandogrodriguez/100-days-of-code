@@ -71,7 +71,19 @@ I didn't have much time to code today, but I finished some preliminary designs f
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
 
-### R1D14 - R1D15 - January 14, 2018 - January 15, 2018
+### R1D14 - R1D15 - January 15, 2018
 I've been traveling this weekend, so it was hard for me to make time for coding. On my flight back from San Jose, I accomplished so much! I tweaked the UI design and started its implementation. It doesn't sound like much, but if you've done iOS development, you know what a headache the UI Design process is.
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D15 - R1D16 - January 17, 2018
+Wow, so much work was done today. I worked about 5 hours on this yesterday and today. Big things I did:
+1. Created the main menu button animations.
+2. Implemented automatic login.
+3. Fixed the UI on the profile page.
+4. Added the blurred background when the main menu button is pressed.
+5. Fixed a bug that caused a several-second delay on updating the current low for the day on the home page.
+
+Other than this, I made a series of stories and saved them on Wunderlist. From now on, I'll simply pick and choose one of the stories and work on it until it's done. It feels like this will be done very soon!
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
