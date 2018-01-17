@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0920"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E73BE4D9B55A9D68C2E19A7C24B930F0"
+               BlueprintIdentifier = "CE0CDF82D2E3291D1FE964D6C0D3CBF7"
                BuildableName = "Pods_Swayter.framework"
                BlueprintName = "Pods-Swayter"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E73BE4D9B55A9D68C2E19A7C24B930F0"
+            BlueprintIdentifier = "CE0CDF82D2E3291D1FE964D6C0D3CBF7"
             BuildableName = "Pods_Swayter.framework"
             BlueprintName = "Pods-Swayter"
             ReferencedContainer = "container:Pods.xcodeproj">

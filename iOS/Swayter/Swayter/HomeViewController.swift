@@ -32,7 +32,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     var lowTemperatureForecast: Double = -273.00 {
         didSet {
             print("lowTemperatureForecast: \(self.lowTemperatureForecast)")
-            updateLowTemperatureLabel()
+            DispatchQueue.main.async {
+                self.updateLowTemperatureLabel()
+            }
         }
     }
     

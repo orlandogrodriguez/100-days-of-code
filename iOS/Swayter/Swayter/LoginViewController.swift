@@ -8,7 +8,10 @@
 
 import UIKit
 import FBSDKLoginKit
+import FacebookCore
 import CoreLocation
+import FirebaseAuth
+
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
@@ -23,6 +26,20 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.frame = CGRect(x: 0, y: view.frame.height / 2, width: view.frame.width, height: 44)
         
         loginButton.delegate = self
+        
+        if let accessToken = AccessToken.current {
+            print("\n\n\nUser \(accessToken) already logged in...\n\n\n")
+            
+            DispatchQueue.main.async {
+                print("moving to home.")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+                self.present(controller, animated: false, completion: nil)
+            }
+            
+        } else {
+            print("\n\nSomething happened\n\n")
+        }
         
     }
     
