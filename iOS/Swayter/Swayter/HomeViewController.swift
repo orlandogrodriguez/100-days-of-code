@@ -49,8 +49,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var newThresholdButton: UIButton!
     
+    @IBOutlet weak var backgroundBlur: UIView!
+    
     @IBAction func hamburgerButtonPress(_ sender: Any) {
         enableMenuButtons()
+        
     }
     
     @IBAction func homeButtonPress(_ sender: Any) {
@@ -71,6 +74,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         disableMenuButtons()
+        setUpBackgroundBlur()
         
     }
     
@@ -89,6 +93,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             self.profileButton.transform = CGAffineTransform.identity
             self.notificationsButton.transform = CGAffineTransform.identity
             self.newThresholdButton.transform = CGAffineTransform.identity
+            
+            self.backgroundBlur.alpha = 0
+            
         },completion: { (true) in
             self.profileButton.isHidden = true
             self.notificationsButton.isHidden = true
@@ -115,12 +122,31 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             self.profileButton.transform = CGAffineTransform(translationX: displacement * -1, y: 0)
             self.notificationsButton.transform = CGAffineTransform(translationX: diagonalDisplacement * -1, y: diagonalDisplacement * -1)
             self.newThresholdButton.transform = CGAffineTransform(translationX: 0, y: displacement * -1)
+            
+            self.backgroundBlur.alpha = 1
+            
         }) { (true) in
             self.profileButton.isEnabled = true
             self.notificationsButton.isEnabled = true
             self.newThresholdButton.isEnabled = true
         }
         
+    }
+    
+    func setUpBackgroundBlur() {
+        if !UIAccessibilityIsReduceTransparencyEnabled() {
+            
+            
+            let blurEffect = UIBlurEffect(style: .dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            //always fill the view
+            blurEffectView.frame = backgroundBlur.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            backgroundBlur.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
+        } else {
+            backgroundBlur.backgroundColor = .black
+        }
     }
     
     func updateLowTemperatureLabel() {
