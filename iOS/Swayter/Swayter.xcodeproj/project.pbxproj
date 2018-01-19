@@ -21,6 +21,7 @@
 		8125278B1FFD989F00940DAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8125278A1FFD989F00940DAB /* LoginViewController.swift */; };
 		8125278D1FFD9A0300940DAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8125278C1FFD9A0300940DAB /* GoogleService-Info.plist */; };
 		81AD9A24200FCA1000BF1AC6 /* MenuButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD9A23200FCA1000BF1AC6 /* MenuButtons.swift */; };
+		81AD9A2620118EE100BF1AC6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD9A2520118EE100BF1AC6 /* ProfileViewController.swift */; };
 		DA839325F08E0ADB4C8CCE37 /* Pods_SwayterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738E12FA9C95FDEEF322BC54 /* Pods_SwayterUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		8125278C1FFD9A0300940DAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		819F82511FFF15A5005EF8A4 /* Swayter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swayter.entitlements; sourceTree = "<group>"; };
 		81AD9A23200FCA1000BF1AC6 /* MenuButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtons.swift; sourceTree = "<group>"; };
+		81AD9A2520118EE100BF1AC6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		935C93C5C2FF24A08E3E6E55 /* Pods-Swayter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swayter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swayter/Pods-Swayter.release.xcconfig"; sourceTree = "<group>"; };
 		C62BC57BC1C9FFB8A309B574 /* Pods-SwayterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwayterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwayterUITests/Pods-SwayterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EB9E8DBC47D0B9D1FE4DF18D /* Pods-SwayterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwayterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwayterUITests/Pods-SwayterUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				8125278C1FFD9A0300940DAB /* GoogleService-Info.plist */,
 				8125275B1FFC7C4100940DAB /* Swayter.xcdatamodeld */,
 				8125278A1FFD989F00940DAB /* LoginViewController.swift */,
+				81AD9A2520118EE100BF1AC6 /* ProfileViewController.swift */,
 			);
 			path = Swayter;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				812527871FFC7DDC00940DAB /* TemperatureThreshold.swift in Sources */,
 				812527571FFC7C4100940DAB /* HomeViewController.swift in Sources */,
 				812527551FFC7C4100940DAB /* AppDelegate.swift in Sources */,
+				81AD9A2620118EE100BF1AC6 /* ProfileViewController.swift in Sources */,
 				8125278B1FFD989F00940DAB /* LoginViewController.swift in Sources */,
 				8125275D1FFC7C4100940DAB /* Swayter.xcdatamodeld in Sources */,
 			);

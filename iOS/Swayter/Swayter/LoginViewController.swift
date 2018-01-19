@@ -21,26 +21,43 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         
         // Facebook Login Button
-        let loginButton = FBSDKLoginButton()
-        view.addSubview(loginButton)
-        loginButton.frame = CGRect(x: 0, y: view.frame.height / 2, width: view.frame.width, height: 44)
+//        let loginButton = FBSDKLoginButton()
+//        view.addSubview(loginButton)
+//        loginButton.frame = CGRect(x: 0, y: view.frame.height / 2, width: view.frame.width, height: 44)
+//        loginButton.delegate = self
         
-        loginButton.delegate = self
+        // Custom Facebook Button
+        let customFacebookLoginButton = UIButton(type: .system)
+        customFacebookLoginButton.backgroundColor = UIColor(red: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
+        customFacebookLoginButton.frame = CGRect(x: 0, y: view.frame.height / 2 - 32, width: view.frame.width, height: 64)
+        customFacebookLoginButton.setTitle("Sign In With Facebook", for: .normal)
+        customFacebookLoginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        customFacebookLoginButton.setTitleColor(.white, for: .normal)
+        view.addSubview(customFacebookLoginButton)
         
+        customFacebookLoginButton.addTarget(self, action: #selector(handleCustomFacebookLogin), for: .touchUpInside)
+        
+        // Automatic Log In
         if let accessToken = AccessToken.current {
-            print("\n\n\nUser \(accessToken) already logged in...\n\n\n")
-            
+
             DispatchQueue.main.async {
-                print("moving to home.")
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC")
-                self.present(controller, animated: false, completion: nil)
+                print("User is already logged in. Proceeding to home page.")
+                self.moveToHomeVC()
             }
-            
         } else {
             print("\n\nSomething happened\n\n")
         }
         
+    }
+    
+    @objc func handleCustomFacebookLogin() {
+        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, err) in
+            if err != nil {
+                print("Custom Facebook Login Failed.")
+                return
+            }
+            self.moveToHomeVC()
+        }
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -52,12 +69,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             print(error)
             return
         }
-        
+        moveToHomeVC()
+        print("Successfully logged in with facebook.")
+    }
+    
+    func moveToHomeVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC")
         self.present(controller, animated: false, completion: nil)
-        
-        print("Successfully logged in with facebook.")
     }
     
 }
