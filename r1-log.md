@@ -87,3 +87,14 @@ Wow, so much work was done today. I worked about 5 hours on this yesterday and t
 Other than this, I made a series of stories and saved them on Wunderlist. From now on, I'll simply pick and choose one of the stories and work on it until it's done. It feels like this will be done very soon!
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D17 - R1D18
+I worked on some of the user stories I set up last time.
+1. I created a custom login button.
+2. Added a logout button.
+3. Started development on ThresholdsVC and the ThresholdView.
+4. Fixed some UI elements on ProfileVC.
+
+Hopefully i'll finish the ThresholdView tomorrow.
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
