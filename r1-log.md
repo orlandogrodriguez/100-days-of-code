@@ -98,3 +98,10 @@ I worked on some of the user stories I set up last time.
 Hopefully i'll finish the ThresholdView tomorrow.
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D19 - R1D21
+The custom threshold view took me roughly 8 hours (3 days of code). This was a huge challenge for me. It seems like the more I work on this app, the more complicated it becomes. There is still so much to do. My goal is to complete the app by R1D25, but I'm not sure if this will be possible. Every time I start coding, I'm faced with some serious roadblock that has me hours trying to figure it out.
+
+I'll work with adding the Delete Threshold functionality next time.
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
