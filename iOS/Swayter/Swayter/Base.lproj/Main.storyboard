@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wan-gk-bWZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tgH-fS-GIo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -358,7 +358,7 @@
         <!--Thresholds View Controller-->
         <scene sceneID="1zI-tr-KkR">
             <objects>
-                <viewController restorationIdentifier="ThresholdsVC" storyboardIdentifier="ThresholdsVC" title="Thresholds View Controller" id="tgH-fS-GIo" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ThresholdsVC" storyboardIdentifier="ThresholdsVC" title="Thresholds View Controller" id="tgH-fS-GIo" customClass="ThresholdsViewController" customModule="Swayter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f8I-gB-cfu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -379,35 +379,24 @@
                                 <rect key="frame" x="291" y="583" width="64" height="64"/>
                                 <state key="normal" backgroundImage="HomeButton"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfE-zO-PY9">
-                                <rect key="frame" x="0.0" y="519" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="0.79746361301369861" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="EQG-bd-AJV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Add New Threshold">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GwR-5z-Mte" firstAttribute="top" secondItem="iPz-io-kZy" secondAttribute="top" constant="44" id="0gl-Ol-AnS"/>
-                            <constraint firstItem="RfE-zO-PY9" firstAttribute="trailing" secondItem="iPz-io-kZy" secondAttribute="trailing" id="1qe-n7-4ZD"/>
                             <constraint firstItem="iPz-io-kZy" firstAttribute="trailing" secondItem="GwR-5z-Mte" secondAttribute="trailing" constant="20" id="21a-Ys-zgD"/>
                             <constraint firstItem="GwR-5z-Mte" firstAttribute="leading" secondItem="iPz-io-kZy" secondAttribute="leading" constant="20" id="7Se-4f-dbl"/>
                             <constraint firstItem="iPz-io-kZy" firstAttribute="trailing" secondItem="fts-yV-PLZ" secondAttribute="trailing" constant="20" id="gkZ-3b-w6a"/>
                             <constraint firstItem="iPz-io-kZy" firstAttribute="bottom" secondItem="fts-yV-PLZ" secondAttribute="bottom" constant="20" id="i05-Bh-tcD"/>
-                            <constraint firstItem="RfE-zO-PY9" firstAttribute="leading" secondItem="iPz-io-kZy" secondAttribute="leading" id="uXo-W8-xXd"/>
-                            <constraint firstItem="fts-yV-PLZ" firstAttribute="top" secondItem="RfE-zO-PY9" secondAttribute="bottom" constant="20" id="xxf-YJ-5ZC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iPz-io-kZy"/>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="GwR-5z-Mte" id="9xZ-jo-JR2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORI-T3-Obe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2205.5999999999999" y="662.51874062968523"/>
+            <point key="canvasLocation" x="2206" y="645"/>
         </scene>
     </scenes>
     <resources>

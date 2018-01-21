@@ -2,7 +2,7 @@
 //  ThresholdView.swift
 //  Swayter
 //
-//  Created by Orlando G. Rodriguez on 1/19/18.
+//  Created by Orlando G. Rodriguez on 1/21/18.
 //  Copyright © 2018 Worly Software. All rights reserved.
 //
 
@@ -17,26 +17,5 @@ class ThresholdView: UIView {
         // Drawing code
     }
     */
-    var name: String = "New Threshold"
-    var threshold: Int = 70
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    private func commonInit(name: String, threshold: Int) {
-        self.name = name
-        self.threshold = threshold
-    }
-    
-    private func commonInit() {
-        self.commonInit(name: "New Threshold", threshold: 70)
-    }
 
 }
