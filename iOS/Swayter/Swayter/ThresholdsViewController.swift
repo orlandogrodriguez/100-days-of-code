@@ -14,25 +14,35 @@ class ThresholdsViewController: UIViewController {
     var thresholds: [TemperatureThreshold] = []
     var nameLabels: [UILabel] = []
     var temperatureLabels: [UILabel] = []
+    var thresholdViews: [UIView] = []
     
     let scrollView = UIScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         fetchThresholds()
+        
         let svHeight = Int((view.frame.height - 104) - (titleLabel.frame.maxY + 44))
         scrollView.frame = CGRect(x: 0, y: titleLabel.frame.maxY + 44, width: view.frame.width, height: CGFloat(svHeight))
         scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * thresholds.count)
-        
-        print("120 * thresholds.count = \(120 * thresholds.count)")
-        
+
         view.addSubview(scrollView)
-        
-        
         
         for i in 0 ..< thresholds.count {
             generateThresholdViewElement(index: i)
         }
+        
+        
+        // TODO: Add New Threshold
+        let newThresholdButton = UIButton()
+        newThresholdButton.frame = CGRect(x: 20, y: thresholdViews[thresholds.count - 1].frame.maxY + 20, width: view.frame.width, height: 44)
+        newThresholdButton.backgroundColor = .white
+        newThresholdButton.setTitle("Add New Threshold", for: .normal)
+        newThresholdButton.addTarget(self, action: #selector(addNewThreshold), for: .touchUpInside)
+        //edit
+        self.scrollView.addSubview(newThresholdButton)
+        
         
     }
     
@@ -61,6 +71,7 @@ class ThresholdsViewController: UIViewController {
         
         let thresholdView = UIView(frame: CGRect(x: 0, y: thresholdY, width: thresholdW, height: thresholdH))
         thresholdView.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.5)
+        thresholdViews.append(thresholdView)
         
         //edit
         self.scrollView.addSubview(thresholdView)
@@ -124,6 +135,11 @@ class ThresholdsViewController: UIViewController {
         thresholds.append(TemperatureThreshold(name: "Jacket", temperature: 60))
         thresholds.append(TemperatureThreshold(name: "Coat", temperature: 50))
         thresholds.append(TemperatureThreshold(name: "Gloves", temperature: 40))
+    }
+    
+    func addNewThreshold() {
+        thresholds.append(TemperatureThreshold(name: "New Threshold", temperature: 70))
+        
     }
 }
 
