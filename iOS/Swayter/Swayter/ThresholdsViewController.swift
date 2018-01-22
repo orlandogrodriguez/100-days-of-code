@@ -15,9 +15,20 @@ class ThresholdsViewController: UIViewController {
     var nameLabels: [UILabel] = []
     var temperatureLabels: [UILabel] = []
     
+    let scrollView = UIScrollView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchThresholds()
+        let svHeight = Int((view.frame.height - 104) - (titleLabel.frame.maxY + 44))
+        scrollView.frame = CGRect(x: 0, y: titleLabel.frame.maxY + 44, width: view.frame.width, height: CGFloat(svHeight))
+        scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * thresholds.count)
+        
+        print("120 * thresholds.count = \(120 * thresholds.count)")
+        
+        view.addSubview(scrollView)
+        
+        
         
         for i in 0 ..< thresholds.count {
             generateThresholdViewElement(index: i)
@@ -32,12 +43,15 @@ class ThresholdsViewController: UIViewController {
         let maxH = view.frame.height
         let midH = maxH / 2
         
-        let startY = titleLabel.frame.maxY + 44
+        //let startY = titleLabel.frame.maxY + 44
+        let startY = self.scrollView.frame.minY
         
         let thresholdH = 100
         let gap = 20
         let thresholdW = Int(view.frame.width)
-        let thresholdY = Int(startY) + (index * thresholdH) + (index * gap)
+        
+        //let thresholdY = Int(startY) + (index * thresholdH) + (index * gap)
+        let thresholdY = (index * thresholdH) + (index * gap)
         
         let buttonW = 44
         let buttonH = 44
@@ -47,7 +61,9 @@ class ThresholdsViewController: UIViewController {
         
         let thresholdView = UIView(frame: CGRect(x: 0, y: thresholdY, width: thresholdW, height: thresholdH))
         thresholdView.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.5)
-        view.addSubview(thresholdView)
+        
+        //edit
+        self.scrollView.addSubview(thresholdView)
         
         
         // Threshold Buttons
@@ -55,13 +71,15 @@ class ThresholdsViewController: UIViewController {
         decreaseBtn.frame = CGRect(x: 20, y: buttonY, width: buttonW, height: buttonH)
         decreaseBtn.setBackgroundImage(#imageLiteral(resourceName: "LessButton"), for: .normal)
         decreaseBtn.addTarget(self, action: #selector(decreaseThreshold), for: .touchUpInside)
-        view.addSubview(decreaseBtn)
+        //edit
+        self.scrollView.addSubview(decreaseBtn)
         
         let increaseBtn = IncreaseThresholdButton(index: index)
         increaseBtn.frame = CGRect(x: Int(maxW) - 20 - buttonW, y: buttonY, width: buttonW, height: buttonH)
         increaseBtn.setBackgroundImage(#imageLiteral(resourceName: "MoreButton"), for: .normal)
         increaseBtn.addTarget(self, action: #selector(increaseThreshold), for: .touchUpInside)
-        view.addSubview(increaseBtn)
+        //edit
+        self.scrollView.addSubview(increaseBtn)
         
         //Threshold Name Label
         let thresholdLabel = UILabel(frame: CGRect(x: 0, y: thresholdY + 8, width: thresholdW, height: 24))
@@ -69,7 +87,9 @@ class ThresholdsViewController: UIViewController {
         thresholdLabel.textColor = .white
         thresholdLabel.textAlignment = .center
         thresholdLabel.font = thresholdLabel.font.withSize(24)
-        view.addSubview(thresholdLabel)
+        
+        //edit
+        self.scrollView.addSubview(thresholdLabel)
         nameLabels.append(thresholdLabel)
         
         //Threshold Temperature Label
@@ -78,8 +98,11 @@ class ThresholdsViewController: UIViewController {
         temperatureLabel.textColor = .white
         temperatureLabel.textAlignment = .center
         temperatureLabel.font = thresholdLabel.font.withSize(48)
-        view.addSubview(temperatureLabel)
+        
+        //edit
+        self.scrollView.addSubview(temperatureLabel)
         temperatureLabels.append(temperatureLabel)
+    
     }
     
     @objc private func decreaseThreshold(sender: DecreaseThresholdButton) {
