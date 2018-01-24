@@ -112,3 +112,8 @@ Rather than working on deleting thresholds, I worked on making the threshold vie
 It looks like it's nothing but big challenges up ahead!
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D24
+Lot's of work got done today! Thresholds can now be easily renamed and removed as well. This threshold page is looking pretty solid! I still have to work on a few points: Forcing the user to rename a new threshold; Setting a limit for number of thresholds. I might keep working on this tonight.
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
