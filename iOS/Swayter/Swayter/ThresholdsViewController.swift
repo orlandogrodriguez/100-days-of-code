@@ -20,6 +20,8 @@ class ThresholdsViewController: UIViewController {
     
     let scrollView = UIScrollView()
     
+    var currentEditIndex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -104,9 +106,10 @@ class ThresholdsViewController: UIViewController {
         thresholdLabel.textAlignment = .center
         thresholdLabel.font = thresholdLabel.font.withSize(24)
         //Make label tappable
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapLabel))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ThresholdsViewController.tapLabel(_:)))
         thresholdLabel.isUserInteractionEnabled = true
         thresholdLabel.addGestureRecognizer(tap)
+        tap.name = thresholdLabel.text
         
         //edit
         thresholdLabel.tag = 100
@@ -114,7 +117,8 @@ class ThresholdsViewController: UIViewController {
         nameLabels.append(thresholdLabel)
         
         //Threshold Temperature Label
-        let temperatureLabel = UILabel(frame: CGRect(x: 0, y: thresholdY + 16 + 24, width: thresholdW, height: 48))
+        let temperatureLabel = ThresholdLabel(ind: index)
+        temperatureLabel.frame = CGRect(x: 0, y: thresholdY + 16 + 24, width: thresholdW, height: 48)
         temperatureLabel.text = "\(thresholds[index].temperature)ºF"
         temperatureLabel.textColor = .white
         temperatureLabel.textAlignment = .center
@@ -126,8 +130,23 @@ class ThresholdsViewController: UIViewController {
     
     }
     
-    @objc func tapLabel(sender: UILabel!) {
-        print("tapped label \(sender.text ?? "n/a").")
+    @objc func tapLabel(_ sender: UITapGestureRecognizer) {
+        print("tapped label \(sender.name ?? "n/a").")
+        var cei = -1
+        for i in 0 ..< thresholds.count {
+            if thresholds[i].name == sender.name {
+                cei = i
+            }
+        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ThresholdPopupVC") as! PopupViewController
+        controller.modalTransitionStyle = .crossDissolve
+        controller.thresholds = thresholds
+        controller.previousVC = self
+        controller.index = cei
+        
+        self.present(controller, animated: true, completion: nil)
     }
     
     @objc private func decreaseThreshold(sender: DecreaseThresholdButton) {
@@ -156,9 +175,7 @@ class ThresholdsViewController: UIViewController {
         scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * thresholds.count)
     }
     
-    @IBAction func addNewThresholdButtonPress(_ sender: Any) {
-        print("Adding new threshold.")
-        
+    func clearThresholdsUI() {
         print("Removing views.")
         for element in nameLabels {
             element.tag = 100
@@ -180,28 +197,22 @@ class ThresholdsViewController: UIViewController {
         temperatureLabels = []
         thresholdViews = []
         temperatureChangeButtons = []
-        
-        addNewThreshold()
-        for i in 0 ..< thresholds.count {
+    }
+    
+    func refreshThresholdsUI(count: Int) {
+        for i in 0 ..< count {
             generateThresholdViewElement(index: i)
         }
     }
-    //    @IBAction func asdf(_ sender: Any) {
-//        //Iterate through all UI elements and remove them.
-//        print("Removing views.")
-//        for element in nameLabels {
-//            element.viewWithTag(100)?.removeFromSuperview()
-//        }
-//        for element in temperatureLabels {
-//            element.viewWithTag(100)?.removeFromSuperview()
-//        }
-//        for element in thresholdViews {
-//            element.viewWithTag(100)?.removeFromSuperview()
-//        }
-//        for element in temperatureChangeButtons {
-//            element.viewWithTag(100)?.removeFromSuperview()
-//        }
-//    }
+    
+    @IBAction func addNewThresholdButtonPress(_ sender: Any) {
+        print("Adding new threshold.")
+        
+        clearThresholdsUI()
+        addNewThreshold()
+        refreshThresholdsUI(count: thresholds.count)
+
+    }
 }
 
 private class DecreaseThresholdButton: UIButton {
@@ -230,3 +241,16 @@ private class IncreaseThresholdButton: UIButton {
     }
 }
 
+private class ThresholdLabel: UILabel {
+    var ind: Int
+    
+    init(ind: Int) {
+        self.ind = ind
+        super.init(frame: CGRect())
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
