@@ -105,3 +105,10 @@ The custom threshold view took me roughly 8 hours (3 days of code). This was a h
 I'll work with adding the Delete Threshold functionality next time.
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D22 - R1D23
+Rather than working on deleting thresholds, I worked on making the threshold view scrollable as well as adding a new threshold. Both were pretty big challenges, but I feel like I'm getting a hang of it. For the thresholds, I still need to add the functionality of deleting a threshold, renaming a threshold, and having all of this sync with the database.
+
+It looks like it's nothing but big challenges up ahead!
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
