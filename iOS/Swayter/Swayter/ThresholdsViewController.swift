@@ -12,9 +12,11 @@ class ThresholdsViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     var thresholds: [TemperatureThreshold] = []
+    
     var nameLabels: [UILabel] = []
     var temperatureLabels: [UILabel] = []
     var thresholdViews: [UIView] = []
+    var temperatureChangeButtons: [UIButton] = []
     
     let scrollView = UIScrollView()
     
@@ -35,13 +37,14 @@ class ThresholdsViewController: UIViewController {
         
         
         // TODO: Add New Threshold
-        let newThresholdButton = UIButton()
-        newThresholdButton.frame = CGRect(x: 20, y: thresholdViews[thresholds.count - 1].frame.maxY + 20, width: view.frame.width, height: 44)
-        newThresholdButton.backgroundColor = .white
-        newThresholdButton.setTitle("Add New Threshold", for: .normal)
-        newThresholdButton.addTarget(self, action: #selector(addNewThreshold), for: .touchUpInside)
+//        let newThresholdButton = UIButton()
+//        newThresholdButton.frame = CGRect(x: 20, y: thresholdViews[thresholds.count - 1].frame.maxY + 20, width: view.frame.width, height: 44)
+//        newThresholdButton.backgroundColor = .white
+//        newThresholdButton.setTitle("Add New Threshold", for: .normal)
+//        newThresholdButton.addTarget(self, action: #selector(addNewThreshold), for: .touchUpInside)
+        
         //edit
-        self.scrollView.addSubview(newThresholdButton)
+        //self.scrollView.addSubview(newThresholdButton)
         
         
     }
@@ -83,6 +86,7 @@ class ThresholdsViewController: UIViewController {
         decreaseBtn.setBackgroundImage(#imageLiteral(resourceName: "LessButton"), for: .normal)
         decreaseBtn.addTarget(self, action: #selector(decreaseThreshold), for: .touchUpInside)
         //edit
+        temperatureChangeButtons.append(decreaseBtn)
         self.scrollView.addSubview(decreaseBtn)
         
         let increaseBtn = IncreaseThresholdButton(index: index)
@@ -90,6 +94,7 @@ class ThresholdsViewController: UIViewController {
         increaseBtn.setBackgroundImage(#imageLiteral(resourceName: "MoreButton"), for: .normal)
         increaseBtn.addTarget(self, action: #selector(increaseThreshold), for: .touchUpInside)
         //edit
+        temperatureChangeButtons.append(increaseBtn)
         self.scrollView.addSubview(increaseBtn)
         
         //Threshold Name Label
@@ -98,8 +103,13 @@ class ThresholdsViewController: UIViewController {
         thresholdLabel.textColor = .white
         thresholdLabel.textAlignment = .center
         thresholdLabel.font = thresholdLabel.font.withSize(24)
+        //Make label tappable
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapLabel))
+        thresholdLabel.isUserInteractionEnabled = true
+        thresholdLabel.addGestureRecognizer(tap)
         
         //edit
+        thresholdLabel.tag = 100
         self.scrollView.addSubview(thresholdLabel)
         nameLabels.append(thresholdLabel)
         
@@ -114,6 +124,10 @@ class ThresholdsViewController: UIViewController {
         self.scrollView.addSubview(temperatureLabel)
         temperatureLabels.append(temperatureLabel)
     
+    }
+    
+    @objc func tapLabel(sender: UILabel!) {
+        print("tapped label \(sender.text ?? "n/a").")
     }
     
     @objc private func decreaseThreshold(sender: DecreaseThresholdButton) {
@@ -137,10 +151,57 @@ class ThresholdsViewController: UIViewController {
         thresholds.append(TemperatureThreshold(name: "Gloves", temperature: 40))
     }
     
-    func addNewThreshold() {
-        thresholds.append(TemperatureThreshold(name: "New Threshold", temperature: 70))
-        
+    @objc func addNewThreshold() {
+        thresholds.insert(TemperatureThreshold(name: "New Threshold", temperature: 70), at: 0)
+        scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * thresholds.count)
     }
+    
+    @IBAction func addNewThresholdButtonPress(_ sender: Any) {
+        print("Adding new threshold.")
+        
+        print("Removing views.")
+        for element in nameLabels {
+            element.tag = 100
+            element.viewWithTag(100)?.removeFromSuperview()
+        }
+        for element in temperatureLabels {
+            element.tag = 100
+            element.viewWithTag(100)?.removeFromSuperview()
+        }
+        for element in thresholdViews {
+            element.tag = 100
+            element.viewWithTag(100)?.removeFromSuperview()
+        }
+        for element in temperatureChangeButtons {
+            element.tag = 100
+            element.viewWithTag(100)?.removeFromSuperview()
+        }
+        nameLabels = []
+        temperatureLabels = []
+        thresholdViews = []
+        temperatureChangeButtons = []
+        
+        addNewThreshold()
+        for i in 0 ..< thresholds.count {
+            generateThresholdViewElement(index: i)
+        }
+    }
+    //    @IBAction func asdf(_ sender: Any) {
+//        //Iterate through all UI elements and remove them.
+//        print("Removing views.")
+//        for element in nameLabels {
+//            element.viewWithTag(100)?.removeFromSuperview()
+//        }
+//        for element in temperatureLabels {
+//            element.viewWithTag(100)?.removeFromSuperview()
+//        }
+//        for element in thresholdViews {
+//            element.viewWithTag(100)?.removeFromSuperview()
+//        }
+//        for element in temperatureChangeButtons {
+//            element.viewWithTag(100)?.removeFromSuperview()
+//        }
+//    }
 }
 
 private class DecreaseThresholdButton: UIButton {

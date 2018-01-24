@@ -388,12 +388,25 @@
                                     <segue destination="6P6-r6-FeV" kind="presentation" id="D8B-JC-Zg7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whe-7Y-KE5">
+                                <rect key="frame" x="20" y="583" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="Tmu-Kb-RsY"/>
+                                    <constraint firstAttribute="height" constant="64" id="Uc9-gN-MR3"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="AddButton"/>
+                                <connections>
+                                    <action selector="addNewThresholdButtonPress:" destination="tgH-fS-GIo" eventType="touchUpInside" id="Y1q-Cc-3IN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GwR-5z-Mte" firstAttribute="top" secondItem="iPz-io-kZy" secondAttribute="top" constant="44" id="0gl-Ol-AnS"/>
                             <constraint firstItem="iPz-io-kZy" firstAttribute="trailing" secondItem="GwR-5z-Mte" secondAttribute="trailing" constant="20" id="21a-Ys-zgD"/>
                             <constraint firstItem="GwR-5z-Mte" firstAttribute="leading" secondItem="iPz-io-kZy" secondAttribute="leading" constant="20" id="7Se-4f-dbl"/>
+                            <constraint firstItem="iPz-io-kZy" firstAttribute="bottom" secondItem="Whe-7Y-KE5" secondAttribute="bottom" constant="20" id="f05-57-XYP"/>
+                            <constraint firstItem="Whe-7Y-KE5" firstAttribute="leading" secondItem="iPz-io-kZy" secondAttribute="leading" constant="20" id="fGs-9r-bNj"/>
                             <constraint firstItem="iPz-io-kZy" firstAttribute="trailing" secondItem="fts-yV-PLZ" secondAttribute="trailing" constant="20" id="gkZ-3b-w6a"/>
                             <constraint firstItem="iPz-io-kZy" firstAttribute="bottom" secondItem="fts-yV-PLZ" secondAttribute="bottom" constant="20" id="i05-Bh-tcD"/>
                         </constraints>
