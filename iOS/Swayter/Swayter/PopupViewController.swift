@@ -26,11 +26,18 @@ class PopupViewController: UIViewController {
     }
     
     @IBAction func cancelNameEdit(_ sender: UIButton) {
+        
+        let pvc = previousVC as? ThresholdsViewController
+        
+        //pvc?.thresholds[index!].name = thresholdNameTextField.text ?? "New Threshold"
+        
+        pvc?.removeThreshold(index: index!)
+        
         thresholdNameTextField.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
     @IBAction func acceptNameEdit(_ sender: UIButton) {
-        var pvc = previousVC as? ThresholdsViewController
+        let pvc = previousVC as? ThresholdsViewController
 
         pvc?.thresholds[index!].name = thresholdNameTextField.text ?? "New Threshold"
         pvc?.clearThresholdsUI()

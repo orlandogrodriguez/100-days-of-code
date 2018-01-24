@@ -32,23 +32,7 @@ class ThresholdsViewController: UIViewController {
         scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * thresholds.count)
 
         view.addSubview(scrollView)
-        
-        for i in 0 ..< thresholds.count {
-            generateThresholdViewElement(index: i)
-        }
-        
-        
-        // TODO: Add New Threshold
-//        let newThresholdButton = UIButton()
-//        newThresholdButton.frame = CGRect(x: 20, y: thresholdViews[thresholds.count - 1].frame.maxY + 20, width: view.frame.width, height: 44)
-//        newThresholdButton.backgroundColor = .white
-//        newThresholdButton.setTitle("Add New Threshold", for: .normal)
-//        newThresholdButton.addTarget(self, action: #selector(addNewThreshold), for: .touchUpInside)
-        
-        //edit
-        //self.scrollView.addSubview(newThresholdButton)
-        
-        
+        refreshThresholdsUI(count: thresholds.count)
     }
     
     func generateThresholdViewElement(index: Int) {
@@ -205,9 +189,16 @@ class ThresholdsViewController: UIViewController {
         }
     }
     
+    func removeThreshold(index: Int) {
+        print("Removing new threshold.")
+        scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * (thresholds.count - 1))
+        clearThresholdsUI()
+        thresholds.remove(at: index)
+        refreshThresholdsUI(count: thresholds.count)
+    }
+    
     @IBAction func addNewThresholdButtonPress(_ sender: Any) {
         print("Adding new threshold.")
-        
         clearThresholdsUI()
         addNewThreshold()
         refreshThresholdsUI(count: thresholds.count)
