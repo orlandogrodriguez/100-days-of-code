@@ -11,6 +11,10 @@ import UIKit
 class ThresholdsViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var emptyThresholdsLabel: UILabel!
+    
+//    var emptyThresholdsLabel: UILabel = UILabel()
+    
     var thresholds: [TemperatureThreshold] = []
     
     var nameLabels: [UILabel] = []
@@ -111,14 +115,26 @@ class ThresholdsViewController: UIViewController {
         //edit
         self.scrollView.addSubview(temperatureLabel)
         temperatureLabels.append(temperatureLabel)
-    
     }
     
-    @objc func tapLabel(_ sender: UITapGestureRecognizer) {
-        print("tapped label \(sender.name ?? "n/a").")
+    func updateDefaultMessage() {
+        //Empty Thresholds Label
+        print("threshold.count = \(thresholds.count)")
+        if thresholds.count > 0 {
+            print("msg not hidden")
+            emptyThresholdsLabel.isHidden = true
+            emptyThresholdsLabel.alpha = 0
+        } else {
+            print("msg is hidden")
+            emptyThresholdsLabel.isHidden = false
+            emptyThresholdsLabel.alpha = 1
+        }
+    }
+    
+    func presentPopup(name: String) {
         var cei = -1
         for i in 0 ..< thresholds.count {
-            if thresholds[i].name == sender.name {
+            if thresholds[i].name == name {
                 cei = i
             }
         }
@@ -129,8 +145,12 @@ class ThresholdsViewController: UIViewController {
         controller.thresholds = thresholds
         controller.previousVC = self
         controller.index = cei
-        
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    @objc func tapLabel(_ sender: UITapGestureRecognizer) {
+        print("tapped label \(sender.name ?? "n/a").")
+        presentPopup(name: sender.name ?? "n/a")
     }
     
     @objc private func decreaseThreshold(sender: DecreaseThresholdButton) {
@@ -157,6 +177,7 @@ class ThresholdsViewController: UIViewController {
     @objc func addNewThreshold() {
         thresholds.insert(TemperatureThreshold(name: "New Threshold", temperature: 70), at: 0)
         scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * thresholds.count)
+        presentPopup(name: "New Threshold")
     }
     
     func clearThresholdsUI() {
@@ -177,6 +198,7 @@ class ThresholdsViewController: UIViewController {
             element.tag = 100
             element.viewWithTag(100)?.removeFromSuperview()
         }
+        
         nameLabels = []
         temperatureLabels = []
         thresholdViews = []
@@ -186,6 +208,17 @@ class ThresholdsViewController: UIViewController {
     func refreshThresholdsUI(count: Int) {
         for i in 0 ..< count {
             generateThresholdViewElement(index: i)
+        }
+        //Empty Thresholds Label
+        print("threshold.count = \(count)")
+        if count > 0 {
+            print("msg not hidden")
+            emptyThresholdsLabel.isHidden = true
+            emptyThresholdsLabel.alpha = 0
+        } else {
+            print("msg is hidden")
+            emptyThresholdsLabel.isHidden = false
+            emptyThresholdsLabel.alpha = 1
         }
     }
     
@@ -202,18 +235,15 @@ class ThresholdsViewController: UIViewController {
         clearThresholdsUI()
         addNewThreshold()
         refreshThresholdsUI(count: thresholds.count)
-
     }
 }
 
 private class DecreaseThresholdButton: UIButton {
     var index: Int
-
     init(index: Int) {
         self.index = index
         super.init(frame: CGRect())
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -221,12 +251,10 @@ private class DecreaseThresholdButton: UIButton {
 
 private class IncreaseThresholdButton: UIButton {
     var index: Int
-    
     init(index: Int) {
         self.index = index
         super.init(frame: CGRect())
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -234,14 +262,11 @@ private class IncreaseThresholdButton: UIButton {
 
 private class ThresholdLabel: UILabel {
     var ind: Int
-    
     init(ind: Int) {
         self.ind = ind
         super.init(frame: CGRect())
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
