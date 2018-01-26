@@ -117,3 +117,9 @@ Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code
 Lot's of work got done today! Thresholds can now be easily renamed and removed as well. This threshold page is looking pretty solid! I still have to work on a few points: Forcing the user to rename a new threshold; Setting a limit for number of thresholds. I might keep working on this tonight.
 
 Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
+### R1D25
+Today was an easy development day. I did mostly some setup on the UI of a different view controller. Specifically, the notifications view controller. There are still some features that I skipped in the Threshold page, but I want to roll this out sooner rather than later. More to come tomorrow.
+
+Link to my work: [Swayter](https://github.com/orlandogrodriguez/100-days-of-code/tree/master/iOS/Swayter)
+
