@@ -324,7 +324,7 @@
         <!--Notifications View Controller-->
         <scene sceneID="QXW-9I-7uK">
             <objects>
-                <viewController restorationIdentifier="NotificationsVC" storyboardIdentifier="NotificationsVC" title="Notifications View Controller" id="Fy7-EG-DS3" sceneMemberID="viewController">
+                <viewController restorationIdentifier="NotificationsVC" storyboardIdentifier="NotificationsVC" title="Notifications View Controller" id="Fy7-EG-DS3" customClass="RemindersViewController" customModule="Swayter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JyH-76-Yyc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -363,21 +363,24 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HH:MM:SS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDg-gr-Ywo">
-                                            <rect key="frame" x="81.5" y="36" width="212.5" height="44"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="Tf4-rt-LLO"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrn-HI-0xJ">
+                                            <rect key="frame" x="20" y="48" width="335" height="42"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                            <state key="normal" title="HH:MM">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="reminderButtonPress:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="qfh-g9-BVb"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="vrn-HI-0xJ" secondAttribute="trailing" constant="20" id="9e1-tr-Jif"/>
                                         <constraint firstItem="MGS-IN-QgD" firstAttribute="top" secondItem="Dmv-dq-Ost" secondAttribute="top" constant="20" id="Bmi-tL-YsH"/>
+                                        <constraint firstAttribute="bottom" secondItem="vrn-HI-0xJ" secondAttribute="bottom" constant="10" id="CkS-OA-eCn"/>
                                         <constraint firstItem="MGS-IN-QgD" firstAttribute="centerX" secondItem="Dmv-dq-Ost" secondAttribute="centerX" id="ITg-fK-od9"/>
-                                        <constraint firstAttribute="bottom" secondItem="QDg-gr-Ywo" secondAttribute="bottom" constant="20" id="QM1-MQ-yQS"/>
-                                        <constraint firstItem="QDg-gr-Ywo" firstAttribute="centerX" secondItem="Dmv-dq-Ost" secondAttribute="centerX" id="Vwv-yO-bRS"/>
+                                        <constraint firstItem="vrn-HI-0xJ" firstAttribute="top" secondItem="MGS-IN-QgD" secondAttribute="bottom" constant="10" id="aRz-Ca-C0G"/>
+                                        <constraint firstItem="vrn-HI-0xJ" firstAttribute="leading" secondItem="Dmv-dq-Ost" secondAttribute="leading" constant="20" id="fp0-gx-lQM"/>
                                     </constraints>
                                 </view>
                                 <constraints>
@@ -408,6 +411,9 @@
                                                 <constraint firstAttribute="height" constant="44" id="eHt-zM-9pv"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="MondayUnpressed"/>
+                                            <connections>
+                                                <action selector="mondayButtonPress:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="O3E-bt-nVs"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQL-be-ltt">
                                             <rect key="frame" x="61" y="48" width="44" height="44"/>
@@ -416,6 +422,9 @@
                                                 <constraint firstAttribute="height" constant="44" id="8AG-44-eNP"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="TuesdayUnpressed"/>
+                                            <connections>
+                                                <action selector="tuesdayButtonPress:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="LN3-26-6U1"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbt-To-knj">
                                             <rect key="frame" x="113" y="48" width="44" height="44"/>
@@ -424,6 +433,9 @@
                                                 <constraint firstAttribute="width" constant="44" id="qSY-VJ-Yqj"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="WednesdayUnpressed"/>
+                                            <connections>
+                                                <action selector="wednesdayButtonPress:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="nMo-KD-ovb"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyh-B6-nKK">
                                             <rect key="frame" x="165" y="48" width="44" height="44"/>
@@ -432,6 +444,9 @@
                                                 <constraint firstAttribute="width" constant="44" id="kOu-dj-iWc"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="ThursdayUnpressed"/>
+                                            <connections>
+                                                <action selector="thursdayButtonPress:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="e9j-cn-kqf"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fys-Ad-wQg">
                                             <rect key="frame" x="217" y="48" width="44" height="44"/>
@@ -440,6 +455,9 @@
                                                 <constraint firstAttribute="width" constant="44" id="ops-6z-TLO"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="FridayUnpressed"/>
+                                            <connections>
+                                                <action selector="fridayButtonPress:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="JvU-B5-0aN"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dri-lK-a9K">
                                             <rect key="frame" x="269" y="48" width="44" height="44"/>
@@ -448,6 +466,9 @@
                                                 <constraint firstAttribute="height" constant="44" id="kiu-7j-exK"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="SaturdayUnpressed"/>
+                                            <connections>
+                                                <action selector="saturdayButtonPress:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="knw-55-bDg"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Wo-gD-44h">
                                             <rect key="frame" x="321" y="48" width="44" height="44"/>
@@ -456,6 +477,9 @@
                                                 <constraint firstAttribute="height" constant="44" id="hXT-o4-CVo"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="SundayUnpressed"/>
+                                            <connections>
+                                                <action selector="sundayButtonPress:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="FEn-2l-pa5"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -500,6 +524,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Qs-5v-88D"/>
                     </view>
+                    <connections>
+                        <outlet property="fridayButton" destination="fys-Ad-wQg" id="WdW-rk-gwG"/>
+                        <outlet property="mondayButton" destination="FRz-te-SB9" id="E9s-Vo-3Lf"/>
+                        <outlet property="reminderTimeButton" destination="vrn-HI-0xJ" id="SNC-VQ-ZrX"/>
+                        <outlet property="saturdayButton" destination="Dri-lK-a9K" id="Guo-c8-Vt6"/>
+                        <outlet property="sundayButton" destination="2Wo-gD-44h" id="hBA-i5-dDX"/>
+                        <outlet property="thursdayButton" destination="Yyh-B6-nKK" id="bIp-t9-wBh"/>
+                        <outlet property="tuesdayButton" destination="fQL-be-ltt" id="5ho-xP-BpA"/>
+                        <outlet property="wednesdayButton" destination="nbt-To-knj" id="Xjv-bA-2qD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsB-mt-YtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -646,7 +680,7 @@
                                                         <constraint firstAttribute="width" constant="128" id="36X-lj-CQg"/>
                                                         <constraint firstAttribute="height" constant="44" id="YwF-oq-ibb"/>
                                                     </constraints>
-                                                    <state key="normal" title="Rename"/>
+                                                    <state key="normal" title="Accept"/>
                                                     <connections>
                                                         <action selector="acceptNameEdit:" destination="XD5-WP-AWU" eventType="touchUpInside" id="khm-iB-LUh"/>
                                                     </connections>
