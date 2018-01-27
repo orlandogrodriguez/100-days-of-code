@@ -363,24 +363,20 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrn-HI-0xJ">
-                                            <rect key="frame" x="20" y="48" width="335" height="42"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                                            <state key="normal" title="HH:MM">
-                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="reminderButtonPress:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="qfh-g9-BVb"/>
-                                            </connections>
-                                        </button>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="08:00" placeholder="HH:MM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mJL-1A-Zlc">
+                                            <rect key="frame" x="8" y="46" width="359" height="46"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="vrn-HI-0xJ" secondAttribute="trailing" constant="20" id="9e1-tr-Jif"/>
                                         <constraint firstItem="MGS-IN-QgD" firstAttribute="top" secondItem="Dmv-dq-Ost" secondAttribute="top" constant="20" id="Bmi-tL-YsH"/>
-                                        <constraint firstAttribute="bottom" secondItem="vrn-HI-0xJ" secondAttribute="bottom" constant="10" id="CkS-OA-eCn"/>
                                         <constraint firstItem="MGS-IN-QgD" firstAttribute="centerX" secondItem="Dmv-dq-Ost" secondAttribute="centerX" id="ITg-fK-od9"/>
-                                        <constraint firstItem="vrn-HI-0xJ" firstAttribute="top" secondItem="MGS-IN-QgD" secondAttribute="bottom" constant="10" id="aRz-Ca-C0G"/>
-                                        <constraint firstItem="vrn-HI-0xJ" firstAttribute="leading" secondItem="Dmv-dq-Ost" secondAttribute="leading" constant="20" id="fp0-gx-lQM"/>
+                                        <constraint firstAttribute="trailing" secondItem="mJL-1A-Zlc" secondAttribute="trailing" constant="8" id="Va2-uJ-BMz"/>
+                                        <constraint firstAttribute="bottom" secondItem="mJL-1A-Zlc" secondAttribute="bottom" constant="8" id="Vct-9A-JZB"/>
+                                        <constraint firstItem="mJL-1A-Zlc" firstAttribute="top" secondItem="MGS-IN-QgD" secondAttribute="bottom" constant="8" id="iDY-h9-dLT"/>
+                                        <constraint firstItem="mJL-1A-Zlc" firstAttribute="leading" secondItem="Dmv-dq-Ost" secondAttribute="leading" constant="8" id="lXK-h8-UA4"/>
                                     </constraints>
                                 </view>
                                 <constraints>
@@ -507,6 +503,12 @@
                                 </constraints>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCw-WY-WK0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <connections>
+                                    <action selector="dismissKeyboardButtonPress:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="lrH-z1-NmO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -516,8 +518,12 @@
                             <constraint firstItem="kpe-S2-lnF" firstAttribute="top" secondItem="Ry4-gS-tex" secondAttribute="bottom" constant="44" id="8cU-DP-do9"/>
                             <constraint firstItem="2Ec-Yu-hy3" firstAttribute="leading" secondItem="5Qs-5v-88D" secondAttribute="leading" id="D6P-oi-izg"/>
                             <constraint firstItem="5Qs-5v-88D" firstAttribute="bottom" secondItem="Pq3-Wl-jJ6" secondAttribute="bottom" constant="20" id="DLE-sp-1Wj"/>
+                            <constraint firstItem="uCw-WY-WK0" firstAttribute="leading" secondItem="5Qs-5v-88D" secondAttribute="leading" id="F7r-Lg-43R"/>
+                            <constraint firstItem="5Qs-5v-88D" firstAttribute="bottom" secondItem="uCw-WY-WK0" secondAttribute="bottom" id="Fy9-xT-IJD"/>
                             <constraint firstItem="2Ec-Yu-hy3" firstAttribute="top" secondItem="kpe-S2-lnF" secondAttribute="bottom" constant="20" id="JPx-Vc-kyg"/>
+                            <constraint firstItem="5Qs-5v-88D" firstAttribute="trailing" secondItem="uCw-WY-WK0" secondAttribute="trailing" id="L46-zj-Zy6"/>
                             <constraint firstItem="5Qs-5v-88D" firstAttribute="trailing" secondItem="Pq3-Wl-jJ6" secondAttribute="trailing" constant="20" id="Sh9-rJ-ndb"/>
+                            <constraint firstItem="uCw-WY-WK0" firstAttribute="top" secondItem="5Qs-5v-88D" secondAttribute="top" id="Tna-Cy-NeZ"/>
                             <constraint firstItem="kpe-S2-lnF" firstAttribute="leading" secondItem="5Qs-5v-88D" secondAttribute="leading" id="VsU-Z8-thl"/>
                             <constraint firstItem="5Qs-5v-88D" firstAttribute="trailing" secondItem="kpe-S2-lnF" secondAttribute="trailing" id="X6G-ub-O8U"/>
                             <constraint firstItem="5Qs-5v-88D" firstAttribute="trailing" secondItem="Ry4-gS-tex" secondAttribute="trailing" constant="20" id="xaW-u1-mmo"/>
@@ -525,9 +531,10 @@
                         <viewLayoutGuide key="safeArea" id="5Qs-5v-88D"/>
                     </view>
                     <connections>
+                        <outlet property="dismissKeyboardButton" destination="uCw-WY-WK0" id="aUl-sb-m2U"/>
                         <outlet property="fridayButton" destination="fys-Ad-wQg" id="WdW-rk-gwG"/>
                         <outlet property="mondayButton" destination="FRz-te-SB9" id="E9s-Vo-3Lf"/>
-                        <outlet property="reminderTimeButton" destination="vrn-HI-0xJ" id="SNC-VQ-ZrX"/>
+                        <outlet property="reminderTimeTextField" destination="mJL-1A-Zlc" id="cI5-CU-gS0"/>
                         <outlet property="saturdayButton" destination="Dri-lK-a9K" id="Guo-c8-Vt6"/>
                         <outlet property="sundayButton" destination="2Wo-gD-44h" id="hBA-i5-dDX"/>
                         <outlet property="thursdayButton" destination="Yyh-B6-nKK" id="bIp-t9-wBh"/>
