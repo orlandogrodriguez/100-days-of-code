@@ -26,6 +26,8 @@ class ThresholdsViewController: UIViewController {
     
     var currentEditIndex: Int?
     
+    var userData = UserData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -145,6 +147,7 @@ class ThresholdsViewController: UIViewController {
         controller.thresholds = thresholds
         controller.previousVC = self
         controller.index = cei
+        userData.thresholds
         self.present(controller, animated: true, completion: nil)
     }
     
@@ -235,6 +238,19 @@ class ThresholdsViewController: UIViewController {
         clearThresholdsUI()
         addNewThreshold()
         refreshThresholdsUI(count: thresholds.count)
+    }
+    
+    func updateDatabase() {
+        print("Updating database...")
+    }
+    
+    func proceedToHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController
+        nextVC?.userData = userData
+        nextVC?.modalTransitionStyle = .crossDissolve
+        updateDatabase()
+        present(nextVC!, animated: true, completion: nil)
     }
 }
 

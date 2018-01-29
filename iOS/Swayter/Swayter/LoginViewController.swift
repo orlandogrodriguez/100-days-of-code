@@ -9,22 +9,18 @@
 import UIKit
 import FBSDKLoginKit
 import FacebookCore
-import CoreLocation
 import FirebaseAuth
 
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-    var thresholds = [TemperatureThreshold]()
+//    var thresholds = [TemperatureThreshold]()
+//    var units = "F"
+//    
+//
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Facebook Login Button
-//        let loginButton = FBSDKLoginButton()
-//        view.addSubview(loginButton)
-//        loginButton.frame = CGRect(x: 0, y: view.frame.height / 2, width: view.frame.width, height: 44)
-//        loginButton.delegate = self
         
         // Custom Facebook Button
         let customFacebookLoginButton = UIButton(type: .system)

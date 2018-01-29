@@ -10,9 +10,16 @@ import UIKit
 import FBSDKLoginKit
 
 class ProfileViewController: UIViewController {
-
+    
+    var units: String?
+    var userData = UserData()
+    
+    @IBOutlet weak var unitsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        unitsButton.setTitle(userData.units, for: .normal)
         
         let logoutButton = UIButton(type: .system)
         logoutButton.backgroundColor = UIColor(red: 246/255, green: 71/255, blue: 71/255, alpha: 1.0)
@@ -30,6 +37,33 @@ class ProfileViewController: UIViewController {
         manager.logOut()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "LoginVC")
-        self.present(controller, animated: false, completion: nil)
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func unitsButtonPress(_ sender: UIButton) {
+        if userData.units == "F" {
+            userData.units = "C"
+        } else {
+            userData.units = "F"
+        }
+        unitsButton.setTitle(userData.units, for: .normal)
+    }
+    
+    
+    @IBAction func homeButtonPress(_ sender: UIButton) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController
+        print("Units: \(userData.units)")
+        controller?.userData = userData
+        controller?.modalTransitionStyle = .crossDissolve
+        updateDatabase()
+        present(controller!, animated: true, completion: nil)
+        
+    }
+    
+    func updateDatabase() {
+        print("Updating database...")
     }
 }

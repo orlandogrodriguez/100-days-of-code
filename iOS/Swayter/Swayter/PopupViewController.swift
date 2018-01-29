@@ -14,6 +14,8 @@ class PopupViewController: UIViewController {
     var previousVC: UIViewController?
     var index: Int?
     
+    var userData = UserData()
+    
     @IBOutlet weak var thresholdNameTextField: UITextField!
     
     override func viewDidLoad() {

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import FBSDKLoginKit
+//import FBSDKLoginKit
+//import FacebookLogin
 import CoreLocation
 
 struct Forecast: Decodable {
@@ -28,6 +29,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     let darkSkyApiKey = "1d9fa591049c0c502bd0e4f3f3d3c2c9"
+    
+    var userData: UserData?
     
     var lowTemperatureForecast: Double = -273.00 {
         didSet {
@@ -60,14 +63,30 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         disableMenuButtons()
     }
     
+    @IBAction func refreshPageButtonPress(_ sender: UIButton) {
+        
+        DispatchQueue.main.async {
+            self.updateLowTemperatureLabel()
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if var uData = userData {
+            print("Units: \(uData.units)")
+            uData.fetch()
+        } else {
+            userData = UserData()
+        }
+        
         
         // Location Manager
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
+            userData!.locationServicesEnabled = true
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
@@ -150,7 +169,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateLowTemperatureLabel() {
-        self.lowTemperatureLabel.text = "\(self.lowTemperatureForecast)ºF"
+        if userData!.units == "F" {
+            userData!.dailyLow = Int(self.lowTemperatureForecast)
+            self.lowTemperatureLabel.text = "\(userData!.dailyLow)ºF"
+        } else {
+            self.lowTemperatureLabel.text = "\((Int(userData!.dailyLow - 32) * (5/9)))ºC"
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -189,5 +213,29 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             }.resume()
             
         }
+    }
+    
+    func proceedToProfile() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC") as? ProfileViewController
+        nextVC?.userData = userData!
+        nextVC?.modalTransitionStyle = .crossDissolve
+        present(nextVC!, animated: true, completion: nil)
+    }
+    
+    func proceedToReminders() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "RemindersVC") as? RemindersViewController
+        nextVC?.userData = userData!
+        nextVC?.modalTransitionStyle = .crossDissolve
+        present(nextVC!, animated: true, completion: nil)
+    }
+    
+    func proceedToThresholds() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "ThresholdsVC") as? ThresholdsViewController
+        nextVC?.userData = userData!
+        nextVC?.modalTransitionStyle = .crossDissolve
+        present(nextVC!, animated: true, completion: nil)
     }
 }

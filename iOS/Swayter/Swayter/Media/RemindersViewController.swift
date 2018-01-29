@@ -16,6 +16,7 @@ class RemindersViewController: UIViewController {
     var selectedHour: Int = 9
     var selectedMinute: Int = 0
     
+    var userData = UserData()
     
     @IBOutlet weak var dismissKeyboardButton: UIButton!
     @IBOutlet weak var reminderTimeTextField: UITextField!
@@ -132,6 +133,19 @@ class RemindersViewController: UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    func updateDatabase() {
+        print("Updating database...")
+    }
+    
+    func proceedToHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController
+        nextVC?.userData = userData
+        nextVC?.modalTransitionStyle = .crossDissolve
+        updateDatabase()
+        present(nextVC!, animated: true, completion: nil)
+    }
 }
 
 extension RemindersViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -185,7 +199,7 @@ extension RemindersViewController: UIPickerViewDelegate, UIPickerViewDataSource 
             var oldText = reminderTimeTextField.text!
             oldText = String(oldText.dropLast())
             oldText = String(oldText.dropLast())
-            var newText = String(format: "\(oldText)%02d", hours[row])
+            var newText = String(format: "\(oldText)%02d", minutes[row])
             reminderTimeTextField.text = newText
         }
         

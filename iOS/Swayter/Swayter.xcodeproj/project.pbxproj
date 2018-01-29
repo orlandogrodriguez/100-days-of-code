@@ -25,6 +25,7 @@
 		81AD9A2620118EE100BF1AC6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD9A2520118EE100BF1AC6 /* ProfileViewController.swift */; };
 		81AD9A2E2014140F00BF1AC6 /* ThresholdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD9A2D2014140F00BF1AC6 /* ThresholdsViewController.swift */; };
 		81E55DAA201BB2FB004603E5 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E55DA9201BB2FB004603E5 /* RemindersViewController.swift */; };
+		81E55DAC201CFD66004603E5 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E55DAB201CFD66004603E5 /* UserData.swift */; };
 		DA839325F08E0ADB4C8CCE37 /* Pods_SwayterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738E12FA9C95FDEEF322BC54 /* Pods_SwayterUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		81AD9A2520118EE100BF1AC6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		81AD9A2D2014140F00BF1AC6 /* ThresholdsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdsViewController.swift; sourceTree = "<group>"; };
 		81E55DA9201BB2FB004603E5 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RemindersViewController.swift; path = Media/RemindersViewController.swift; sourceTree = "<group>"; };
+		81E55DAB201CFD66004603E5 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		935C93C5C2FF24A08E3E6E55 /* Pods-Swayter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swayter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swayter/Pods-Swayter.release.xcconfig"; sourceTree = "<group>"; };
 		C62BC57BC1C9FFB8A309B574 /* Pods-SwayterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwayterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwayterUITests/Pods-SwayterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EB9E8DBC47D0B9D1FE4DF18D /* Pods-SwayterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwayterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwayterUITests/Pods-SwayterUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				81AD9A2D2014140F00BF1AC6 /* ThresholdsViewController.swift */,
 				81A2E6112019015300F67D8E /* PopupViewController.swift */,
 				81E55DA9201BB2FB004603E5 /* RemindersViewController.swift */,
+				81E55DAB201CFD66004603E5 /* UserData.swift */,
 			);
 			path = Swayter;
 			sourceTree = "<group>";
@@ -353,13 +356,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swayter-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		26B5B6FC7E5D67E7084D63B4 /* [CP] Embed Pods Frameworks */ = {
@@ -383,13 +389,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwayterTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5BC05020C9112F8CE69CED38 /* [CP] Embed Pods Frameworks */ = {
@@ -443,13 +452,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwayterUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D7ECC1B8083507FCEAAED875 /* [CP] Embed Pods Frameworks */ = {
@@ -458,9 +470,30 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swayter/Pods-Swayter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -494,6 +527,7 @@
 				812527871FFC7DDC00940DAB /* TemperatureThreshold.swift in Sources */,
 				812527571FFC7C4100940DAB /* HomeViewController.swift in Sources */,
 				81E55DAA201BB2FB004603E5 /* RemindersViewController.swift in Sources */,
+				81E55DAC201CFD66004603E5 /* UserData.swift in Sources */,
 				812527551FFC7C4100940DAB /* AppDelegate.swift in Sources */,
 				81A2E6122019015300F67D8E /* PopupViewController.swift in Sources */,
 				81AD9A2620118EE100BF1AC6 /* ProfileViewController.swift in Sources */,

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE0CDF82D2E3291D1FE964D6C0D3CBF7"
+               BlueprintIdentifier = "5B53CC4AA9DDCDF685B5018DDD50777C"
                BuildableName = "Pods_Swayter.framework"
                BlueprintName = "Pods-Swayter"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE0CDF82D2E3291D1FE964D6C0D3CBF7"
+            BlueprintIdentifier = "5B53CC4AA9DDCDF685B5018DDD50777C"
             BuildableName = "Pods_Swayter.framework"
             BlueprintName = "Pods-Swayter"
             ReferencedContainer = "container:Pods.xcodeproj">

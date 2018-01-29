@@ -15,7 +15,7 @@ target 'Swayter' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
-  pod 'FacebookCore'
+  pod 'FacebookLogin'
   
 
   target 'SwayterTests' do
