@@ -62,13 +62,24 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func homeButtonPress(_ sender: Any) {
         disableMenuButtons()
     }
+    @IBAction func notificationsButtonPress(_ sender: UIButton) {
+        proceedToReminders()
+    }
+    
+    @IBAction func thresholdsButtonPress(_ sender: UIButton) {
+        proceedToThresholds()
+    }
+    
+    @IBAction func profileButtonPress(_ sender: UIButton) {
+        proceedToProfile()
+    }
+    
     
     @IBAction func refreshPageButtonPress(_ sender: UIButton) {
         
         DispatchQueue.main.async {
             self.updateLowTemperatureLabel()
         }
-        
     }
     
     override func viewDidLoad() {

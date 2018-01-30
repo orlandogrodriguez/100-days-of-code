@@ -10,7 +10,7 @@ import UIKit
 
 class PopupViewController: UIViewController {
     
-    var thresholds: [TemperatureThreshold] = []
+    //var thresholds: [TemperatureThreshold] = []
     var previousVC: UIViewController?
     var index: Int?
     
@@ -20,7 +20,7 @@ class PopupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(thresholds)
+        
         
         thresholdNameTextField.becomeFirstResponder()
         
@@ -41,9 +41,9 @@ class PopupViewController: UIViewController {
     @IBAction func acceptNameEdit(_ sender: UIButton) {
         let pvc = previousVC as? ThresholdsViewController
 
-        pvc?.thresholds[index!].name = thresholdNameTextField.text ?? "New Threshold"
+        pvc?.userData.thresholds[index!].name = thresholdNameTextField.text ?? "New Threshold"
         pvc?.clearThresholdsUI()
-        pvc?.refreshThresholdsUI(count: thresholds.count)
+        pvc?.refreshThresholdsUI(count: userData.thresholds.count)
         
         thresholdNameTextField.resignFirstResponder()
         dismiss(animated: true, completion: nil)

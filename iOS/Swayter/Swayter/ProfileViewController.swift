@@ -52,7 +52,14 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func homeButtonPress(_ sender: UIButton) {
-        
+        proceedToHome()
+    }
+    
+    func updateDatabase() {
+        print("Updating database...")
+    }
+    
+    func proceedToHome() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController
         print("Units: \(userData.units)")
@@ -60,10 +67,5 @@ class ProfileViewController: UIViewController {
         controller?.modalTransitionStyle = .crossDissolve
         updateDatabase()
         present(controller!, animated: true, completion: nil)
-        
-    }
-    
-    func updateDatabase() {
-        print("Updating database...")
     }
 }

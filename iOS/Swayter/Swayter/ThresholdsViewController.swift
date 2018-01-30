@@ -15,7 +15,7 @@ class ThresholdsViewController: UIViewController {
     
 //    var emptyThresholdsLabel: UILabel = UILabel()
     
-    var thresholds: [TemperatureThreshold] = []
+//    var thresholds: [TemperatureThreshold] = []
     
     var nameLabels: [UILabel] = []
     var temperatureLabels: [UILabel] = []
@@ -31,14 +31,14 @@ class ThresholdsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchThresholds()
+        //fetchThresholds()
         
         let svHeight = Int((view.frame.height - 104) - (titleLabel.frame.maxY + 44))
         scrollView.frame = CGRect(x: 0, y: titleLabel.frame.maxY + 44, width: view.frame.width, height: CGFloat(svHeight))
-        scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * thresholds.count)
+        scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * userData.thresholds.count)
 
         view.addSubview(scrollView)
-        refreshThresholdsUI(count: thresholds.count)
+        refreshThresholdsUI(count: userData.thresholds.count)
     }
     
     func generateThresholdViewElement(index: Int) {
@@ -91,7 +91,7 @@ class ThresholdsViewController: UIViewController {
         
         //Threshold Name Label
         let thresholdLabel = UILabel(frame: CGRect(x: 0, y: thresholdY + 8, width: thresholdW, height: 24))
-        thresholdLabel.text = thresholds[index].name
+        thresholdLabel.text = userData.thresholds[index].name
         thresholdLabel.textColor = .white
         thresholdLabel.textAlignment = .center
         thresholdLabel.font = thresholdLabel.font.withSize(24)
@@ -109,7 +109,7 @@ class ThresholdsViewController: UIViewController {
         //Threshold Temperature Label
         let temperatureLabel = ThresholdLabel(ind: index)
         temperatureLabel.frame = CGRect(x: 0, y: thresholdY + 16 + 24, width: thresholdW, height: 48)
-        temperatureLabel.text = "\(thresholds[index].temperature)ºF"
+        temperatureLabel.text = "\(userData.thresholds[index].temperature)ºF"
         temperatureLabel.textColor = .white
         temperatureLabel.textAlignment = .center
         temperatureLabel.font = thresholdLabel.font.withSize(48)
@@ -121,8 +121,8 @@ class ThresholdsViewController: UIViewController {
     
     func updateDefaultMessage() {
         //Empty Thresholds Label
-        print("threshold.count = \(thresholds.count)")
-        if thresholds.count > 0 {
+        print("threshold.count = \(userData.thresholds.count)")
+        if userData.thresholds.count > 0 {
             print("msg not hidden")
             emptyThresholdsLabel.isHidden = true
             emptyThresholdsLabel.alpha = 0
@@ -135,8 +135,8 @@ class ThresholdsViewController: UIViewController {
     
     func presentPopup(name: String) {
         var cei = -1
-        for i in 0 ..< thresholds.count {
-            if thresholds[i].name == name {
+        for i in 0 ..< userData.thresholds.count {
+            if userData.thresholds[i].name == name {
                 cei = i
             }
         }
@@ -144,10 +144,10 @@ class ThresholdsViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ThresholdPopupVC") as! PopupViewController
         controller.modalTransitionStyle = .crossDissolve
-        controller.thresholds = thresholds
+        controller.userData.thresholds = userData.thresholds
         controller.previousVC = self
         controller.index = cei
-        userData.thresholds
+        //userData.thresholds
         self.present(controller, animated: true, completion: nil)
     }
     
@@ -158,28 +158,28 @@ class ThresholdsViewController: UIViewController {
     
     @objc private func decreaseThreshold(sender: DecreaseThresholdButton) {
         print("Decreasing temperature for threshold \(sender.index).")
-        thresholds[sender.index].temperature -= 1
-        temperatureLabels[sender.index].text = "\(thresholds[sender.index].temperature)ºF"
+        userData.thresholds[sender.index].temperature -= 1
+        temperatureLabels[sender.index].text = "\(userData.thresholds[sender.index].temperature)ºF"
         
     }
     
     @objc private func increaseThreshold(sender: IncreaseThresholdButton) {
         print("Increasing temperature for threshold \(sender.index).")
-        thresholds[sender.index].temperature += 1
-        temperatureLabels[sender.index].text = "\(thresholds[sender.index].temperature)ºF"
+        userData.thresholds[sender.index].temperature += 1
+        temperatureLabels[sender.index].text = "\(userData.thresholds[sender.index].temperature)ºF"
     }
     
     func fetchThresholds() {
         // Replace this with fetching the thresholds through firebase
-        thresholds.append(TemperatureThreshold(name: "Sweater", temperature: 70))
-        thresholds.append(TemperatureThreshold(name: "Jacket", temperature: 60))
-        thresholds.append(TemperatureThreshold(name: "Coat", temperature: 50))
-        thresholds.append(TemperatureThreshold(name: "Gloves", temperature: 40))
+        userData.thresholds.append(TemperatureThreshold(name: "Sweater", temperature: 70))
+        userData.thresholds.append(TemperatureThreshold(name: "Jacket", temperature: 60))
+        userData.thresholds.append(TemperatureThreshold(name: "Coat", temperature: 50))
+        userData.thresholds.append(TemperatureThreshold(name: "Gloves", temperature: 40))
     }
     
     @objc func addNewThreshold() {
-        thresholds.insert(TemperatureThreshold(name: "New Threshold", temperature: 70), at: 0)
-        scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * thresholds.count)
+        userData.thresholds.insert(TemperatureThreshold(name: "New Threshold", temperature: 70), at: 0)
+        scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * userData.thresholds.count)
         presentPopup(name: "New Threshold")
     }
     
@@ -227,18 +227,23 @@ class ThresholdsViewController: UIViewController {
     
     func removeThreshold(index: Int) {
         print("Removing new threshold.")
-        scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * (thresholds.count - 1))
+        scrollView.contentSize = CGSize(width: Int(view.frame.width), height: 120 * (userData.thresholds.count - 1))
         clearThresholdsUI()
-        thresholds.remove(at: index)
-        refreshThresholdsUI(count: thresholds.count)
+        userData.thresholds.remove(at: index)
+        refreshThresholdsUI(count: userData.thresholds.count)
     }
     
     @IBAction func addNewThresholdButtonPress(_ sender: Any) {
         print("Adding new threshold.")
         clearThresholdsUI()
         addNewThreshold()
-        refreshThresholdsUI(count: thresholds.count)
+        refreshThresholdsUI(count: userData.thresholds.count)
     }
+    
+    @IBAction func homeButtonPress(_ sender: UIButton) {
+        proceedToHome()
+    }
+    
     
     func updateDatabase() {
         print("Updating database...")

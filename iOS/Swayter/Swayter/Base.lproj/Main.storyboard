@@ -117,7 +117,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="NotificationsButton"/>
                                 <connections>
-                                    <segue destination="Fy7-EG-DS3" kind="presentation" modalTransitionStyle="crossDissolve" id="Vy1-aD-Dau"/>
+                                    <action selector="notificationsButtonPress:" destination="6P6-r6-FeV" eventType="touchUpInside" id="IdS-xc-xpz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ont-mz-Izd">
@@ -125,7 +125,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="AddButton"/>
                                 <connections>
-                                    <segue destination="tgH-fS-GIo" kind="presentation" modalTransitionStyle="crossDissolve" id="96v-BN-weS"/>
+                                    <action selector="thresholdsButtonPress:" destination="6P6-r6-FeV" eventType="touchUpInside" id="uj2-qN-MUd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATX-gV-u8s">
@@ -133,7 +133,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="ProfileButton"/>
                                 <connections>
-                                    <segue destination="Ius-SG-5TU" kind="presentation" modalTransitionStyle="crossDissolve" id="s8G-Eu-BXk"/>
+                                    <action selector="profileButtonPress:" destination="6P6-r6-FeV" eventType="touchUpInside" id="pFC-A7-ioP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -357,7 +357,7 @@
         <!--Notifications View Controller-->
         <scene sceneID="QXW-9I-7uK">
             <objects>
-                <viewController restorationIdentifier="NotificationsVC" storyboardIdentifier="NotificationsVC" title="Notifications View Controller" id="Fy7-EG-DS3" customClass="RemindersViewController" customModule="Swayter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RemindersVC" storyboardIdentifier="RemindersVC" title="Notifications View Controller" id="Fy7-EG-DS3" customClass="RemindersViewController" customModule="Swayter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JyH-76-Yyc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -378,7 +378,7 @@
                                 <rect key="frame" x="291" y="583" width="64" height="64"/>
                                 <state key="normal" backgroundImage="HomeButton"/>
                                 <connections>
-                                    <segue destination="6P6-r6-FeV" kind="presentation" modalTransitionStyle="crossDissolve" id="wtU-h4-qxu"/>
+                                    <action selector="homeButtonPressed:" destination="Fy7-EG-DS3" eventType="touchUpInside" id="RGE-et-UQz"/>
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kpe-S2-lnF">
@@ -577,7 +577,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsB-mt-YtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2205.5999999999999" y="-751.57421289355329"/>
+            <point key="canvasLocation" x="2206" y="-834"/>
         </scene>
         <!--Thresholds View Controller-->
         <scene sceneID="1zI-tr-KkR">
@@ -603,7 +603,7 @@
                                 <rect key="frame" x="291" y="583" width="64" height="64"/>
                                 <state key="normal" backgroundImage="HomeButton"/>
                                 <connections>
-                                    <segue destination="6P6-r6-FeV" kind="presentation" modalTransitionStyle="crossDissolve" id="D8B-JC-Zg7"/>
+                                    <action selector="homeButtonPress:" destination="tgH-fS-GIo" eventType="touchUpInside" id="RuK-38-2tO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whe-7Y-KE5">
@@ -796,8 +796,4 @@
         <image name="TuesdayUnpressed" width="44" height="46"/>
         <image name="WednesdayUnpressed" width="44" height="46"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Vy1-aD-Dau"/>
-        <segue reference="wtU-h4-qxu"/>
-    </inferredMetricsTieBreakers>
 </document>

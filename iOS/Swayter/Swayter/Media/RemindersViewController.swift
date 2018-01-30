@@ -59,6 +59,10 @@ class RemindersViewController: UIViewController {
         dismissKeyboard()
         setupKeyboardDismissalButton(isActive: false)
     }
+
+    @IBAction func homeButtonPressed(_ sender: UIButton) {
+        proceedToHome()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +71,7 @@ class RemindersViewController: UIViewController {
         createToolBar()
         
         reminderTimeTextField.addTarget(self, action: #selector(tappedTextField), for: .touchUpInside)
+        reminderTimeTextField.text = String(format: "%02d:%02d", arguments: [userData.selectedHour, userData.selectedMinute])
         
         setupKeyboardDismissalButton(isActive: false)
     }
@@ -77,7 +82,6 @@ class RemindersViewController: UIViewController {
     
     func fetchReminders() {
         //To do: fetch reminders from database.
-        reminders = [false, false, false, false, false, false, false]
         loadDayButtons()
     }
     
@@ -89,10 +93,14 @@ class RemindersViewController: UIViewController {
     func loadDayButtonImages() {
         dayButtonsImagesPressed = [#imageLiteral(resourceName: "MondayPressed"), #imageLiteral(resourceName: "TuesdayPressed"), #imageLiteral(resourceName: "WednesdayPressed"), #imageLiteral(resourceName: "ThursdayPressed"), #imageLiteral(resourceName: "FridayPressed"), #imageLiteral(resourceName: "SaturdayPressed"), #imageLiteral(resourceName: "SundayPressed")]
         dayButtonsImagesUnpressed = [#imageLiteral(resourceName: "MondayUnpressed"), #imageLiteral(resourceName: "TuesdayUnpressed"), #imageLiteral(resourceName: "WednesdayUnpressed"), #imageLiteral(resourceName: "ThursdayUnpressed"), #imageLiteral(resourceName: "FridayUnpressed"), #imageLiteral(resourceName: "SaturdayUnpressed"), #imageLiteral(resourceName: "SundayUnpressed")]
+
+        for i in 0 ..< userData.reminders.count {
+            updateDayButtonState(index: i)
+        }
     }
     
     func updateDayButtonState(index: Int) {
-        if reminders[index] {
+        if userData.reminders[index] {
             dayButtons[index].setBackgroundImage(dayButtonsImagesPressed[index], for: .normal)
         } else {
             dayButtons[index].setBackgroundImage(dayButtonsImagesUnpressed[index], for: .normal)
@@ -100,7 +108,7 @@ class RemindersViewController: UIViewController {
     }
     
     func dayButtonPress(index: Int) {
-        reminders[index] = !reminders[index]
+        userData.reminders[index] = !userData.reminders[index]
         updateDayButtonState(index: index)
     }
     
@@ -139,6 +147,7 @@ class RemindersViewController: UIViewController {
     }
     
     func proceedToHome() {
+        print("Proceeding to Home Page.")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController
         nextVC?.userData = userData
@@ -185,8 +194,8 @@ extension RemindersViewController: UIPickerViewDelegate, UIPickerViewDataSource 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if component == 0 {
-            selectedHour = hours[row]
-            print("Hour: \(selectedHour)")
+            userData.selectedHour = hours[row]
+            print("Hour: \(userData.selectedHour)")
             var oldText = reminderTimeTextField.text!
             oldText = String(oldText.dropFirst())
             oldText = String(oldText.dropFirst())
@@ -194,7 +203,7 @@ extension RemindersViewController: UIPickerViewDelegate, UIPickerViewDataSource 
             reminderTimeTextField.text = newText
             print(newText)
         } else if component == 2 {
-            selectedMinute = minutes[row]
+            userData.selectedMinute = minutes[row]
             
             var oldText = reminderTimeTextField.text!
             oldText = String(oldText.dropLast())
